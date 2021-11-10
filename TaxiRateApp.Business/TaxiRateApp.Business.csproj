@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TaxiRateApp.Core\TaxiRateApp.Core.csproj" />
+    <ProjectReference Include="..\TaxiRateApp.DataAccess\TaxiRateApp.DataAccess.csproj" />
+    <ProjectReference Include="..\TaxiRateApp.Entities\TaxiRateApp.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

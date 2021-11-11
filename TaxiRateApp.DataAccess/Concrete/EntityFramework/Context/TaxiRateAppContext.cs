@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaxiRateApp.Core.Entities.Concrete;
 using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
@@ -97,17 +98,16 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
                     .HasColumnName("User_Id")
                     .HasColumnType("int(11)");
 
+                entity.HasIndex(e => e.User_Id)
+                    .HasName("fk_Offer_User_Id");
+
                 entity.HasOne(d => d.City)
                     .WithMany(p => p.Posts)
                     .HasForeignKey(d => d.City_Id)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Posts_Cities_Id");
 
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Posts)
-                    .HasForeignKey(d => d.User_Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("fk_Posts_Users_Id");
+                
             });
 
             modelBuilder.Entity<Users>(entity =>
@@ -135,6 +135,12 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
 
                 entity.Property(e => e.User_Name)
                     .HasColumnName("User_Name")
+                    .HasColumnType("varchar(255)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.User_Email)
+                    .HasColumnName("User_Email")
                     .HasColumnType("varchar(255)")
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");

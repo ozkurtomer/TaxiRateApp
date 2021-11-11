@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaxiRateApp.Business.Abstract;
+using TaxiRateApp.Business.Constants;
 using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Concrete;
 using TaxiRateApp.DataAccess.Abstract;
@@ -25,21 +26,7 @@ namespace TaxiRateApp.Business.Concrete
             try
             {
                 _postsDal.Add(posts);
-                return new SuccessResult("Eklendi");
-            }
-
-            catch (Exception ex)
-            {
-                return new ErrorResult(ex.Message);
-            }
-        }
-
-        public IResult Delete(Posts posts)
-        {
-            try
-            {
-                _postsDal.Delete(posts);
-                return new SuccessResult("Eklendi");
+                return new SuccessResult(Messages.PostAdded);
             }
 
             catch (Exception ex)
@@ -53,7 +40,21 @@ namespace TaxiRateApp.Business.Concrete
             try
             {
                 _postsDal.Update(posts);
-                return new SuccessResult("Eklendi");
+                return new SuccessResult(Messages.PostUpdated);
+            }
+
+            catch (Exception ex)
+            {
+                return new ErrorResult(ex.Message);
+            }
+        }
+
+        public IResult Delete(Posts posts)
+        {
+            try
+            {
+                _postsDal.Delete(posts);
+                return new SuccessResult(Messages.PostDeleted);
             }
 
             catch (Exception ex)
@@ -66,7 +67,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<List<Posts>>(_postsDal.GetAll());
+                return new SuccessDataResult<List<Posts>>(_postsDal.GetAll(x=>x.Post_IsActive),Messages.PostGet);
             }
 
             catch (Exception ex)

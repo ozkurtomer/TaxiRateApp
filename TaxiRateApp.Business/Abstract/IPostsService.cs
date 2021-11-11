@@ -11,8 +11,6 @@ namespace TaxiRateApp.Business.Abstract
     public interface IPostsService
     {
         IDataResult<List<Posts>> GetAll();
-        //IDataResult<Posts> GetById(int cityId);
-        //IDataResult<Posts> GetByName(string cityName);
 
         IResult Add(Posts posts);
         IResult Update(Posts posts);

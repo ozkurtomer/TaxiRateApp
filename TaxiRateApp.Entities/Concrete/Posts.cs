@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using TaxiRateApp.Core.Entities;
+using TaxiRateApp.Core.Entities.Concrete;
 
 namespace TaxiRateApp.Entities.Concrete
 {

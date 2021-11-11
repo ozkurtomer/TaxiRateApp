@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaxiRateApp.Business.Abstract;
+using TaxiRateApp.Business.Constants;
 using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Concrete;
 using TaxiRateApp.DataAccess.Abstract;
@@ -25,7 +26,7 @@ namespace TaxiRateApp.Business.Concrete
             try
             {
                 _citiesDal.Add(cities);
-                return new SuccessResult("Eklendi");
+                return new SuccessResult(Messages.CityAdded);
             }
 
             catch (Exception ex)
@@ -39,7 +40,7 @@ namespace TaxiRateApp.Business.Concrete
             try
             {
                 _citiesDal.Update(cities);
-                return new SuccessResult("Eklendi");
+                return new SuccessResult(Messages.CityUpdated);
             }
 
             catch (Exception ex)
@@ -53,7 +54,7 @@ namespace TaxiRateApp.Business.Concrete
             try
             {
                 _citiesDal.Delete(cities);
-                return new SuccessResult("Eklendi");
+                return new SuccessResult(Messages.CityDeleted);
             }
 
             catch (Exception ex)
@@ -66,7 +67,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<List<Cities>>(_citiesDal.GetAll());
+                return new SuccessDataResult<List<Cities>>(_citiesDal.GetAll(x=>x.IsActive),Messages.CityGet);
             }
 
             catch (Exception ex)
@@ -79,7 +80,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Id == cityId));
+                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Id == cityId), Messages.CityGet);
             }
 
             catch (Exception ex)
@@ -92,7 +93,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Name.Contains(cityName)));
+                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Name.ToLower().Contains(cityName.ToLower())), Messages.CityGet);
             }
 
             catch (Exception ex)

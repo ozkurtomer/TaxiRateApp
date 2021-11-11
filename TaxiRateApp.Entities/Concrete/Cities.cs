@@ -13,7 +13,7 @@ namespace TaxiRateApp.Entities.Concrete
 
         public int City_Id { get; set; }
         public string City_Name { get; set; }
-        public bool Is_Active { get; set; }
+        public bool IsActive { get; set; }
 
         public virtual ICollection<Posts> Posts { get; set; }
     }

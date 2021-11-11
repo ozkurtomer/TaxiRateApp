@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TaxiRateApp.Core.Entities;
+using TaxiRateApp.Core.Utilities.Results.Abstract;
 
 namespace TaxiRateApp.Core.DataAccess
 {

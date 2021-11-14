@@ -22,6 +22,9 @@ namespace TaxiRateApp.Business.DependencyResolvers.Autofac
             builder.RegisterType<PostsManager>().As<IPostsService>().SingleInstance();
             builder.RegisterType<EfPostsDal>().As<IPostsDal>().SingleInstance();
             
+            builder.RegisterType<CommentsManager>().As<ICommentsService>().SingleInstance();
+            builder.RegisterType<EfCommentsDal>().As<ICommentsDal>().SingleInstance();
+            
             builder.RegisterType<UsersManager>().As<IUsersService>().SingleInstance();
             builder.RegisterType<EfUsersDal>().As<IUsersDal>().SingleInstance();
 

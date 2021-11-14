@@ -1,0 +1,95 @@
+﻿@using TaxiRateApp.Core.Utilities.Results.Abstract
+@using TaxiRateApp.Entities.Concrete
+@model IDataResult<Posts>
+
+@{
+    ViewData["Title"] = "PostsDetails";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<body>
+
+    <!--//banner-->
+    <section class="banner-bottom">
+        <!--/blog-->
+        <div class="container">
+            <div class="row">
+                <!--left-->
+                <div class="col-lg-12 left-blog-info-w3layouts-agileits text-left">
+
+                    <div class="blog-grid-top">
+                        <div class="b-grid-top">
+                            <div class="blog_info_left_grid">
+                                <a href="single.html">
+                                    <img src="~/UserLayoutStyle/images/Banner.jpg" class="img-fluid"/>
+                                </a>
+                            </div>
+                            <div class="blog-info-middle">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-calendar-alt"></i> @Model.Data.Post_CreatedDate.ToShortDateString()
+                                        </a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="far fa-thumbs-up"></i> @Model.Data.Post_LikeCount
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-comment"></i> 0
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h3>
+                            <a href="single.html">Başlık </a>
+                        </h3>
+                        <p>
+                            @Model.Data.Post_Description
+                        </p>
+
+                    </div>
+
+
+                    @*@await Html.PartialAsync("~/Views/Comment/CommentListPartial.cshtml",Model.Data.Comments)*@
+                    @await Component.InvokeAsync("CommentListByPost",new {postId=@Model.Data.Post_Id})
+
+                    @await Html.PartialAsync("~/Views/Comment/CommentAddPartial.cshtml")
+
+                    <div class="comment-top">
+                        <h4>Leave a Comment</h4>
+                        <div class="comment-bottom">
+                            <form action="#" method="post">
+                                <input class="form-control" type="text" name="Name" placeholder="Name" required="">
+                                <input class="form-control" type="email" name="Email" placeholder="Email" required="">
+
+                                <input class="form-control" type="text" name="Subject" placeholder="Subject" required="">
+
+                                <textarea class="form-control" name="Message" placeholder="Message..." required=""></textarea>
+                                <button type="submit" class="btn btn-primary submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!--//left-->
+
+            </div>
+        </div>
+    </section>
+    <!--//main-->
+
+    <a href="#home" class="scroll" id="toTop" style="display: block;">
+        <span id="toTopHover" style="opacity: 1;"> </span>
+    </a>
+
+</body>
+
+</html>

@@ -101,17 +101,35 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<List<Posts>> GetPostsWithDetail()
+        public IDataResult<List<Posts>> GetPostsHomeScreen()
         {
             try
             {
-                return new SuccessDataResult<List<Posts>>(_postsDal.GetPostsWithDetail(), Messages.PostGet);
+                return new SuccessDataResult<List<Posts>>(_postsDal.GetPostsHomeScreen(),Messages.PostGet);
             }
 
             catch (Exception ex)
             {
                 return new ErrorDataResult<List<Posts>>(ex.Message);
             }
+        }
+
+        public IDataResult<Posts> GetPostsDetailWithId(int postId)
+        {
+            try
+            {
+                return new SuccessDataResult<Posts>(_postsDal.Get(x=>x.Post_Id == postId), Messages.PostGet);
+            }
+
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<Posts>(ex.Message);
+            }
+        }
+
+        public IDataResult<List<Posts>> GetPostsWithDetail()
+        {
+            throw new NotImplementedException();
         }
     }
 }

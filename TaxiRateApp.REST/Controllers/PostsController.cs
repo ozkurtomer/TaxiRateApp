@@ -78,7 +78,7 @@ namespace TaxiRateApp.REST.Controllers
         {
             try
             {
-                var result = _postsService.GetAll();
+                var result = _postsService.GetPostsHomeScreen();
                 if (result.Success)
                 {
                     return Ok(result);
@@ -98,6 +98,25 @@ namespace TaxiRateApp.REST.Controllers
             try
             {
                 var result = _postsService.GetAllByUserId(userId);
+                if (result.Success)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
+
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpGet("getdetailwithid")]
+        public IActionResult GetDetailWithId(int postId)
+        {
+            try
+            {
+                var result = _postsService.GetPostsDetailWithId(postId);
                 if (result.Success)
                 {
                     return Ok(result);

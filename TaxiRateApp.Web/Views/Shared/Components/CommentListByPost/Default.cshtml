@@ -1,0 +1,25 @@
+﻿@using TaxiRateApp.Core.Utilities.Results.Abstract
+@using TaxiRateApp.Entities.Concrete
+@model IDataResult<List<Comments>>
+
+<div class="comment-top">
+    <h4>Yorumlar</h4>
+
+    @foreach (var item in Model.Data)
+    {
+        <div class="media">
+            <img src="~/UserLayoutStyle/images/User.png" class="img-fluid"/>
+            <div class="media-body">
+
+                <h5 class="mt-0">@item.User.User_Name</h5>
+                <p>
+                    @item.Comment_Description
+                </p>
+
+            </div>
+
+        </div>
+
+    }
+
+</div>

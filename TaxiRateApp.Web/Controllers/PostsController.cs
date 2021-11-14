@@ -10,7 +10,13 @@ namespace TaxiRateApp.Web.Controllers
 
         public IActionResult Index()
         {
-            var result = postsManager.GetPostsWithDetail();
+            var result = postsManager.GetPostsHomeScreen();
+            return View(result);
+        }
+
+        public IActionResult PostsDetails(int postId)
+        {
+            var result = postsManager.GetPostsDetailWithId(postId);
             return View(result);
         }
     }

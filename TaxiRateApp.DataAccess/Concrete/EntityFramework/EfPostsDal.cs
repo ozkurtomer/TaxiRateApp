@@ -12,22 +12,23 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework
 {
     public class EfPostsDal : EfEntityRepositoryBase<Posts, TaxiRateAppContext>, IPostsDal
     {
-        public List<Posts> GetPostsWithDetail(Expression<Func<Posts, bool>> filter = null)
+        public List<Posts> GetPostsHomeScreen(Expression<Func<Posts, bool>> filter = null)
         {
             using (TaxiRateAppContext context = new TaxiRateAppContext())
             {
                 if (filter == null)
                 {
-                    var result = context.Posts.Include(x => x.User).Include(x=>x.City).Select(x=>new Posts 
+                    var result = context.Posts.Include(x => x.User).Include(x => x.City).Select(x => new Posts
                     {
                         Post_Id = x.Post_Id,
                         City = x.City,
                         Post_CreatedDate = x.Post_CreatedDate,
-                        Post_Description = $"{x.Post_Description.Substring(0,5)}....",
+                        Post_Description = x.Post_Description,
                         Post_Plate = x.Post_Plate,
-                        Post_Stars = x.Post_Stars
-                    }).ToList();
-                    return result;
+                        Post_Stars = x.Post_Stars,
+                        Post_LikeCount = x.Post_LikeCount
+                    });
+                    return result.ToList();
                 }
 
                 else
@@ -38,5 +39,6 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework
                 }
             }
         }
+
     }
 }

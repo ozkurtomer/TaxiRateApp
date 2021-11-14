@@ -20,6 +20,7 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
         }
 
         public virtual DbSet<Cities> Cities { get; set; }
+        public virtual DbSet<Comments> Comments { get; set; }
         public virtual DbSet<Posts> Posts { get; set; }
         public virtual DbSet<Users> Users { get; set; }
 
@@ -50,6 +51,55 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
                     .HasCollation("utf8_general_ci");
             });
 
+            modelBuilder.Entity<Comments>(entity =>
+            {
+                entity.HasKey(e => e.Comment_Id)
+                    .HasName("PRIMARY");
+
+                entity.HasIndex(e => e.Post_Id)
+                    .HasName("fk_Comment_Post_Id");
+
+                entity.HasIndex(e => e.User_Id)
+                    .HasName("fk_Comment_User_Id");
+
+                entity.Property(e => e.Comment_Id)
+                    .HasColumnName("Comment_Id")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Comment_CreatedDate)
+                    .HasColumnName("Comment_CreatedDate")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Comment_Description)
+                    .IsRequired()
+                    .HasColumnName("Comment_Description")
+                    .HasColumnType("text")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
+                entity.Property(e => e.Comment_IsActive).HasColumnName("Comment_IsActive");
+
+                entity.Property(e => e.Post_Id)
+                    .HasColumnName("Post_Id")
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.User_Id)
+                    .HasColumnName("User_Id")
+                    .HasColumnType("int(11)");
+
+                entity.HasOne(d => d.Post)
+                    .WithMany(p => p.Comments)
+                    .HasForeignKey(d => d.Post_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_Comment_Post_Id");
+
+                entity.HasOne(d => d.User) 
+                    .WithMany(p => p.Comments)
+                    .HasForeignKey(d => d.User_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_Comment_User_Id");
+            });
+
             modelBuilder.Entity<Posts>(entity =>
             {
                 entity.HasKey(e => e.Post_Id)
@@ -75,7 +125,11 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
                     .HasColumnName("Post_Description")
                     .HasColumnType("text")
                     .HasCharSet("utf8")
-                    .HasCollation("utf8_general_ci");
+                    .HasCollation("utf8_general_ci"); 
+                
+                entity.Property(e => e.Post_LikeCount)
+                     .HasColumnName("Post_LikeCount")
+                     .HasColumnType("int(11)");
 
                 entity.Property(e => e.Post_IsActive)
                       .HasColumnName("Post_IsActive");

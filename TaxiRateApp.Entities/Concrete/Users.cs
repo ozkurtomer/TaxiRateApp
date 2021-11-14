@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using TaxiRateApp.Entities.Abstract;
 
-namespace TaxiRateApp.Core.Entities.Concrete
+namespace TaxiRateApp.Entities.Concrete
 {
     public partial class Users : IEntity
     {
@@ -14,5 +16,7 @@ namespace TaxiRateApp.Core.Entities.Concrete
         public bool User_Anonymous { get; set; }
         public DateTime User_CreatedDate { get; set; }
         public bool User_IsActive { get; set; }
+
+        public virtual ICollection<Posts> Post { get; set; }
     }
 }

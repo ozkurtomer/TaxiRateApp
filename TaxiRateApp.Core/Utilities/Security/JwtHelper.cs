@@ -2,8 +2,8 @@
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
-using TaxiRateApp.Core.Entities.Concrete;
 using TaxiRateApp.Core.Utilities.Security.Encryption;
+using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.Core.Utilities.Security
 {

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaxiRateApp.Core.Entities
+namespace TaxiRateApp.Entities.Abstract
 {
-    public interface IDTO
+    public interface IEntity
     {
     }
 }

@@ -1,0 +1,77 @@
+﻿@using TaxiRateApp.Entities.Concrete
+@model List<Posts>
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="fonts/icomoon/style.css">
+<link rel="stylesheet" href="~/TablePartialStyle/fonts/icomoon/style.css">
+
+<link rel="stylesheet" href="~/TablePartialStyle/css/owl.carousel.min.css">
+
+<link rel="stylesheet" href="~/TablePartialStyle/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="~/TablePartialStyle/css/style.css">
+
+<link href="~/UserLayoutStyle/css/fontawesome-all.css" rel="stylesheet">
+
+<div class="content">
+
+    <div class="container" style="max-width:100% !important;">
+
+        <h2 class="mb-5">#Son 5 Gönderi</h2>
+
+        <div class="table-responsive">
+
+            <table class="table table-striped custom-table">
+                <thead>
+                    <tr>
+
+                        <th scope="col">Tarih</th>
+                        <th scope="col">Şehir</th>
+                        <th scope="col">Plaka</th>
+                        <th scope="col">Puan</th>
+                        <th scope="col">Açıklama</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr scope="row">
+
+
+                            <td>@item.Post_CreatedDate.ToShortDateString()</td>
+
+                            <td>@item.City.City_Name</td>
+
+                            <td>@item.Post_Plate</td>
+                            
+                            <td>@for(int i=0;i<item.Post_Stars;i++){<i id="star" class="fas fa-star"></i>}</td>
+
+                            <td>
+                                Rezalet
+                                <small class="d-block">@item.Post_Description</small>
+                            </td>
+
+                            <td><a href="#" class="more">İncele</a></td>
+
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script src="~/TablePartialStyle/js/jquery-3.3.1.min.js"></script>
+<script src="~/TablePartialStyle/js/popper.min.js"></script>
+<script src="~/TablePartialStyle/js/bootstrap.min.js"></script>
+<script src="~/TablePartialStyle/js/main.js"></script>

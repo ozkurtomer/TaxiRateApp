@@ -1,6 +1,5 @@
 ﻿using System;
-using TaxiRateApp.Core.Entities;
-using TaxiRateApp.Core.Entities.Concrete;
+using TaxiRateApp.Entities.Abstract;
 
 namespace TaxiRateApp.Entities.Concrete
 {

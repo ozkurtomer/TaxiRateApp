@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using TaxiRateApp.Business.Abstract;
 using TaxiRateApp.Business.Constants;
-using TaxiRateApp.Core.Entities.Concrete;
 using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Concrete;
 using TaxiRateApp.DataAccess.Abstract;
+using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.Business.Concrete
 {

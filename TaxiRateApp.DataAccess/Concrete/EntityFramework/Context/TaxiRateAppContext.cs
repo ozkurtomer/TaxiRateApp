@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TaxiRateApp.Core.Entities.Concrete;
 using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
@@ -59,9 +58,6 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
                 entity.HasIndex(e => e.City_Id)
                     .HasName("fk_Posts_Cities_Id");
 
-                entity.HasIndex(e => e.User_Id)
-                    .HasName("fk_Posts_Users_Id");
-
                 entity.Property(e => e.Post_Id)
                     .HasColumnName("Post_Id")
                     .HasColumnType("int(11)");
@@ -81,7 +77,8 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
                     .HasCharSet("utf8")
                     .HasCollation("utf8_general_ci");
 
-                entity.Property(e => e.Post_IsActive).HasColumnName("Post_IsActive");
+                entity.Property(e => e.Post_IsActive)
+                      .HasColumnName("Post_IsActive");
 
                 entity.Property(e => e.Post_Plate)
                     .IsRequired()
@@ -106,6 +103,12 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
                     .HasForeignKey(d => d.City_Id)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("fk_Posts_Cities_Id");
+                
+                entity.HasOne(d => d.User)
+                    .WithMany(p => p.Post)
+                    .HasForeignKey(d => d.User_Id)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("fk_Posts_Users_Id");
 
                 
             });

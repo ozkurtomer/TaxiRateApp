@@ -67,7 +67,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<List<Cities>>(_citiesDal.GetAll(x=>x.IsActive),Messages.CityGet);
+                return new SuccessDataResult<List<Cities>>(_citiesDal.GetAll(x => x.IsActive), Messages.CityGet);
             }
 
             catch (Exception ex)
@@ -80,7 +80,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Id == cityId), Messages.CityGet);
+                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Id == cityId && x.IsActive), Messages.CityGet);
             }
 
             catch (Exception ex)
@@ -93,7 +93,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Name.ToLower().Contains(cityName.ToLower())), Messages.CityGet);
+                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Name.ToLower().Contains(cityName.ToLower()) && x.IsActive), Messages.CityGet);
             }
 
             catch (Exception ex)

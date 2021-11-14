@@ -92,23 +92,23 @@ namespace TaxiRateApp.REST.Controllers
             }
         }
 
-        //[HttpGet("getbyplatename")]
-        //public IActionResult GetByName(string plateName)
-        //{
-        //    try
-        //    {
-        //        var result = _postsService.GetAll(x=>x.);
-        //        if (result.Success)
-        //        {
-        //            return Ok(result);
-        //        }
-        //        return BadRequest(result);
+        [HttpGet("getallbyuserid")]
+        public IActionResult GetAllByUserId(int userId)
+        {
+            try
+            {
+                var result = _postsService.GetAllByUserId(userId);
+                if (result.Success)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
 
-        //    }
-        //    catch (System.Exception ex)
-        //    {
-        //        return BadRequest(ex.Message);
-        //    }
-        //}
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

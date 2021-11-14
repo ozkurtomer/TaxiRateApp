@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\TaxiRateApp.Core\TaxiRateApp.Core.csproj" />
     <ProjectReference Include="..\TaxiRateApp.Entities\TaxiRateApp.Entities.csproj" />
   </ItemGroup>
 

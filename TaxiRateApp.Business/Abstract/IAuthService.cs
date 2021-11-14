@@ -1,6 +1,6 @@
-﻿using TaxiRateApp.Core.Entities.Concrete;
-using TaxiRateApp.Core.Utilities.Results.Abstract;
+﻿using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Security;
+using TaxiRateApp.Entities.Concrete;
 using TaxiRateApp.Entities.Dtos;
 
 namespace TaxiRateApp.Business.Abstract

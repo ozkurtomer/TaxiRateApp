@@ -67,7 +67,45 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<List<Posts>>(_postsDal.GetAll(x=>x.Post_IsActive),Messages.PostGet);
+                var result = _postsDal.GetAll(x => x.Post_IsActive).Select(x => new Posts
+                {
+                    City = x.City,
+                    City_Id = x.City_Id,
+                    Post_CreatedDate = x.Post_CreatedDate,
+                    Post_Description = $"{x.Post_Description.Substring(0, 7)}...",
+                    Post_Id = x.Post_Id,
+                    Post_IsActive = x.Post_IsActive,
+                    Post_Plate = x.Post_Plate,
+                    Post_Stars = x.Post_Stars,
+                    User_Id = x.User_Id,
+                }).ToList();
+                return new SuccessDataResult<List<Posts>>(result, Messages.PostGet);
+            }
+
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Posts>>(ex.Message);
+            }
+        }
+
+        public IDataResult<List<Posts>> GetAllByUserId(int userId)
+        {
+            try
+            {
+                return new SuccessDataResult<List<Posts>>(_postsDal.GetAll(x => x.Post_IsActive && x.User_Id == userId), Messages.PostGet);
+            }
+
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Posts>>(ex.Message);
+            }
+        }
+
+        public IDataResult<List<Posts>> GetPostsWithDetail()
+        {
+            try
+            {
+                return new SuccessDataResult<List<Posts>>(_postsDal.GetPostsWithDetail(), Messages.PostGet);
             }
 
             catch (Exception ex)

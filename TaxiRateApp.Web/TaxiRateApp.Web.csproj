@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Cities\" />
+    <Folder Include="Views\Shared\Components\CommentList\" />
     <Folder Include="wwwroot\TablePartialStyle\" />
     <Folder Include="wwwroot\UserLayoutStyle\images\" />
   </ItemGroup>

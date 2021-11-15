@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/UserLayout.cshtml";
+}
+
+<link href="~/css/RegisterViewStyle/registermain.css" rel='stylesheet' type='text/css' />
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<div class="grid align__item">
+
+    <div class="register">
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="site__logo" width="56" height="84" viewBox="77.7 214.9 274.7 412">
+            <defs>
+                <linearGradient id="a" x1="0%" y1="0%" y2="0%">
+                    <stop offset="0%" stop-color="#8ceabb" />
+                    <stop offset="100%" stop-color="#378f7b" />
+                </linearGradient>
+            </defs>
+            <path fill="url(#a)" d="M215 214.9c-83.6 123.5-137.3 200.8-137.3 275.9 0 75.2 61.4 136.1 137.3 136.1s137.3-60.9 137.3-136.1c0-75.1-53.7-152.4-137.3-275.9z" />
+        </svg>
+        <h2>Kayıt Ol</h2>
+
+        <form method="post" class="form">
+
+            <div class="form__field">
+                <input name="UserName" type="text" placeholder="Ad Soyad">
+            </div>
+
+            <div class="form__field">
+                <input name="UserUserName" type="text" placeholder="Kullanıcı Adı">
+            </div>
+
+            <div class="form__field">
+                <input name="UserEmail" type="email" placeholder="abc@abc.com">
+            </div>
+
+            <div class="form__field">
+                <input type="password" name="UserPassword" placeholder="Şifre">
+            </div>
+
+            <div class="form__field">
+                <input type="password" name="UserPassword" placeholder="Şifre tekrar">
+            </div>
+
+            <div class="form__field">
+                <input type="submit" value="Kayıt Ol">
+            </div>
+
+        </form>
+
+        <p>Hesabın varmı? <a href="#">Giriş Yap</a></p>
+        <p>
+            <a href="#" id="showAlert">Tüm şartları okudum, kabul ediyorum</a>
+        </p>
+
+    </div>
+
+    <script>
+        $('#showAlert').click(function () {
+            swal("Bla Bla bla");
+        });
+    </script>
+
+</div>
+

@@ -1,9 +1,11 @@
-﻿@{
+﻿@model TaxiRateApp.Entities.Dtos.UserForRegisterDto
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/UserLayout.cshtml";
 }
 
-<link href="~/css/RegisterViewStyle/registermain.css" rel='stylesheet' type='text/css' />
+<link href="~/css/RegisterViewStyle/registermain.css" rel='stylesheet' type='text/css'/>
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 
@@ -24,35 +26,52 @@
         </svg>
         <h2>Kayıt Ol</h2>
 
-        <form method="post" class="form">
-
+        @*<form method="post" class="form">*@
+        @using (Html.BeginForm("Index", "Register", FormMethod.Post,new {@class="form"}))
+        {
             <div class="form__field">
-                <input name="UserName" type="text" placeholder="Ad Soyad">
+                @*<input name="UserName" type="text" placeholder="Ad Soyad">*@
+                @Html.TextBoxFor(x=>x.UserName , new {@placeholder="Ad Soyad"})
+                @Html.ValidationMessageFor(x=>x.UserName,"", new{@class="text-danger"})
+
             </div>
 
             <div class="form__field">
-                <input name="UserUserName" type="text" placeholder="Kullanıcı Adı">
+                @*<input name="UserUserName" type="text" placeholder="Kullanıcı Adı">*@
+                @Html.TextBoxFor(x=>x.UserUserName , new {@placeholder="Kullanıcı Adı"})
+                @Html.ValidationMessageFor(x=>x.UserUserName,"", new{@class="text-danger"})
+
             </div>
 
             <div class="form__field">
-                <input name="UserEmail" type="email" placeholder="abc@abc.com">
+                @*<input name="UserEmail" type="email" placeholder="abc@abc.com">*@
+                @Html.TextBoxFor(x=>x.UserEmail , new {@placeholder="abc@abc.com"})
+                @Html.ValidationMessageFor(x=>x.UserEmail,"", new{@class="text-danger"})
+
             </div>
 
             <div class="form__field">
-                <input type="password" name="UserPassword" placeholder="Şifre">
+                @*<input type="password" name="UserPassword" placeholder="Şifre">*@
+                @Html.PasswordFor(x=>x.UserPassword , new { @placeholder = "Şifre", @type = "password"})
+                @Html.ValidationMessageFor(x=>x.UserPassword,"", new{@class="text-danger"})
+
             </div>
 
             <div class="form__field">
-                <input type="password" name="UserPassword" placeholder="Şifre tekrar">
+                @*<input type="password" name="UserPassword" placeholder="Şifre tekrar">*@
+                @Html.TextBoxFor(x=>x.UserPassword , new {type="password",@placeholder="Şifre Tekrar"})
+                @Html.ValidationMessageFor(x=>x.UserPassword,"", new{@class="text-danger"})
+
             </div>
 
             <div class="form__field">
+
                 <input type="submit" value="Kayıt Ol">
             </div>
 
-        </form>
+        }
 
-        <p>Hesabın varmı? <a href="#">Giriş Yap</a></p>
+        <p>Hesabın varmı? <a href="/Login/Index/">Giriş Yap</a></p>
         <p>
             <a href="#" id="showAlert">Tüm şartları okudum, kabul ediyorum</a>
         </p>
@@ -61,7 +80,8 @@
 
     <script>
         $('#showAlert').click(function () {
-            swal("Bla Bla bla");
+            swal("Site Kabul Şartları",
+            "Bla Bla bla Bla Bla bla Bla Bla bla Bla Bla bla Bla Bla bla Bla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla blaBla Bla bla");
         });
     </script>
 

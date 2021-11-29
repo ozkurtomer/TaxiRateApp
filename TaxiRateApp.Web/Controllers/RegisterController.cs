@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FluentValidation.Results;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RestSharp;
 using TaxiRateApp.Business.Abstract;
 using TaxiRateApp.Business.Concrete;
+using TaxiRateApp.Business.ValidationRules.FluentValidation;
 using TaxiRateApp.Core.Utilities.Security;
 using TaxiRateApp.Entities.Dtos;
+using TaxiRateApp.Web.Utilities.ClientUtilities;
 
 namespace TaxiRateApp.Web.Controllers
 {
@@ -19,14 +22,25 @@ namespace TaxiRateApp.Web.Controllers
         [HttpPost]
         public IActionResult Index(UserForRegisterDto userForRegisterDto)
         {
-            var client = new RestClient($"https://localhost:44327/api/auth/register");
-            var request = new RestRequest(Method.POST);
-            request.AddHeader("content-type", "application/json");
+            RegisterValidator registerValidator = new RegisterValidator();
+            ValidationResult validationResult = registerValidator.Validate(userForRegisterDto);
+            if (validationResult.IsValid)
+            {
+                var client = CreateClient.GetClient("auth/register", false);
+                var request = new RestRequest(Method.POST);
+                request.AddHeader("content-type", "application/json");
 
-            request.AddParameter("application/json", JsonConvert.SerializeObject(userForRegisterDto), ParameterType.RequestBody);
-            var result = client.Execute(request).Content;
+                request.AddParameter("application/json", JsonConvert.SerializeObject(userForRegisterDto), ParameterType.RequestBody);
+                var result = client.Execute(request).Content;
 
-            return RedirectToAction("Index", "Posts");
+                return RedirectToAction("Index", "Posts");
+            }
+
+            foreach (var item in validationResult.Errors)
+            {
+                ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+            }
+            return View();
         }
     }
 }

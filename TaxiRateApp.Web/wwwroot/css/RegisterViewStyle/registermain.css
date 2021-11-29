@@ -25,6 +25,7 @@ input {
 
     input::placeholder {
         color: white;
+        font-size: 1.3rem;
     }
 
 .form__field {

@@ -127,9 +127,18 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<List<Posts>> GetPostsWithDetail()
+        public IDataResult<List<Posts>> GetFivePosts()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = _postsDal.GetAll().OrderByDescending(x => x.Post_CreatedDate).Take(5).ToList();
+                return new SuccessDataResult<List<Posts>>(result, Messages.PostGet);
+            }
+
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Posts>>(ex.Message);
+            }
         }
     }
 }

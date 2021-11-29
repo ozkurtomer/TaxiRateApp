@@ -129,5 +129,23 @@ namespace TaxiRateApp.REST.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet("getlastfiveposts")]
+        public IActionResult GetLastFivePosts()
+        {
+            try
+            {
+                var result = _postsService.GetFivePosts(); 
+                if (result.Success)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

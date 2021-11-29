@@ -12,8 +12,8 @@ namespace TaxiRateApp.Business.Abstract
     {
         IDataResult<List<Posts>> GetPostsHomeScreen();
         IDataResult<List<Posts>> GetAllByUserId(int userId);
-        IDataResult<List<Posts>> GetPostsWithDetail();
         IDataResult<Posts> GetPostsDetailWithId(int postId);
+        IDataResult<List<Posts>> GetFivePosts();
 
         IResult Add(Posts posts);
         IResult Update(Posts posts);

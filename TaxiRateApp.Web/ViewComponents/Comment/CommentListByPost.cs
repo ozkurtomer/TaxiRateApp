@@ -16,13 +16,15 @@ namespace TaxiRateApp.Web.ViewComponents.Comment
 
         public IViewComponentResult Invoke(int postId)
         {
-            var client = CreateClient.GetClient("comment/getbypostid", false);
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("content-type", "application/json");
+            //var client = CreateClient.GetClient("comment/getbypostid", false);
+            //var request = new RestRequest(Method.GET);
+            //request.AddHeader("content-type", "application/json");
 
-            request.AddParameter("id", postId);
-            var aa = client.Execute(request).Content;
-            var result = JsonConvert.DeserializeObject<SuccessDataResult<List<Comments>>>(client.Execute(request).Content);
+            //request.AddParameter("id", postId);
+            //var aa = client.Execute(request).Content;
+            //var result = JsonConvert.DeserializeObject<SuccessDataResult<List<Comments>>>(client.Execute(request).Content);
+
+            var result = contentsManager.GetAllByPostsId(postId);
             return View(result);
         }
     }

@@ -35,70 +35,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--Header-->
 
     <header>
-        <div class="top-bar_sub_w3layouts container-fluid">
-            <div class="row">
 
-                <div class="col-md-4 logo text-left">
-                    <a class="navbar-brand" href="/Posts/Index/">
-                       <svg xmlns="http://www.w3.org/2000/svg" class="site__logo" width="56" height="84" viewBox="77.7 214.9 274.7 412">
-            <defs>
-                <linearGradient id="a" x1="0%" y1="0%" y2="0%">
-                    <stop offset="0%" stop-color="#8ceabb" />
-                    <stop offset="100%" stop-color="#378f7b" />
-                </linearGradient>
-            </defs>
-            <path fill="url(#a)" d="M215 214.9c-83.6 123.5-137.3 200.8-137.3 275.9 0 75.2 61.4 136.1 137.3 136.1s137.3-60.9 137.3-136.1c0-75.1-53.7-152.4-137.3-275.9z" />
-        </svg>Taksi Puanla
-                    </a>
-                </div>
+        @*@await Html.PartialAsync("HeaderTopPartialView")*@
 
-                @await Html.PartialAsync("HeaderTopPartialView")
-
-                <div class="col-md-4 log-icons text-right">
-
-                    <ul class="social_list1 mt-3">
-
-                        <li>
-                            <a href="#" class="facebook1 mx-2">
-                                <i class="fab fa-facebook-f"></i>
-
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="twitter2">
-                                <i class="fab fa-twitter"></i>
-
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="dribble3 mx-2">
-                                <i class="fab fa-dribbble"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="pin">
-                                <i class="fab fa-pinterest-p"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-        @*@await Html.PartialAsync("HeaderPartialView")*@
+        @await Html.PartialAsync("HeaderPartialView")
 
     </header>
 
     <!--//header-->
     <!--/banner-->
-    <div>
+    @*<div>
 
-        @*<input class="plate" maxlength='7' value='' placeholder="34XXX12" pattern="/^(0[1-9]|[1-7][0-9]|8[01])(([A-PR-VYZ])(\d{4,5})|([A-PR-VYZ]{2})(\d{3,4})|([A-PR-VYZ]{3})(\d{2,3}))$/" />
+        <input class="plate" maxlength='7' value='' placeholder="34XXX12" pattern="/^(0[1-9]|[1-7][0-9]|8[01])(([A-PR-VYZ])(\d{4,5})|([A-PR-VYZ]{2})(\d{3,4})|([A-PR-VYZ]{3})(\d{2,3}))$/" />
 
-            <input class="btn btn-success" value="Değerlendirme gir"/>*@
-
-    </div>
+        </div>*@
     <!--//banner-->
     <!--Main-->
     @RenderBody()

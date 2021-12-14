@@ -1,7 +1,6 @@
 body {
     font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: #fff;
-    height: 200vh;
     position: relative;
 }
 
@@ -57,7 +56,6 @@ a {
 
 .site-navbar-wrap {
     background-color: #3c373e;
-    position: absolute;
     z-index: 99;
     width: 100%;
     left: 0;

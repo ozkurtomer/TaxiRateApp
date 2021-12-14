@@ -72,12 +72,12 @@ body {
 
 .plate {
     display: block;
-    margin: 1em auto;
+    margin: .8em auto;
     border: none;
     padding: 0;
     width: 10.5ch;
     background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/10ch 2px no-repeat;
-    font: 5ch droid sans mono, consolas, monospace;
+    font: 4ch droid sans mono, consolas, monospace;
     letter-spacing: 0.5ch;
 }
 

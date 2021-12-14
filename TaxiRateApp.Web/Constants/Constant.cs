@@ -2,7 +2,8 @@
 {
     public static class Constant
     {
-        public static string ApiUrl = "https://localhost:44327/api/";
+        //public static string ApiUrl = "https://localhost:44327/api/";
+        public static string ApiUrl = "https://api.taksipuanla.com/api/";
         public static string ApiToken = string.Empty;
     }
 }

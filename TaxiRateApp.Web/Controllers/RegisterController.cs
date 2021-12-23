@@ -1,4 +1,5 @@
 ﻿using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RestSharp;
@@ -11,6 +12,7 @@ using TaxiRateApp.Web.Utilities.ClientUtilities;
 
 namespace TaxiRateApp.Web.Controllers
 {
+    [AllowAnonymous]
     public class RegisterController : Controller
     {
         [HttpGet]

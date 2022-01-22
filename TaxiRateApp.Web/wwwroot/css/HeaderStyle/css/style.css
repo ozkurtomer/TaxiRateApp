@@ -1,4 +1,4 @@
-.logo {
+/*.logo {
     margin: 2rem;
 }
 
@@ -63,9 +63,9 @@
         z-index: 9999;
     }
 }
+*/
 
-
-/*body {
+body {
     font-family: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     background-color: #fff;
     position: relative;
@@ -580,4 +580,4 @@ a {
             .sticky-wrapper.is-sticky .site-navbar .site-navigation .site-menu > li.active a {
                 color: #fff;
             }
-*/
+

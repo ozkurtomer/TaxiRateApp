@@ -5,17 +5,17 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TaxiRateApp.UI", "TaxiRateApp.UI", "{22161CCF-3C3F-48CD-B80B-BA22F484B714}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiRateApp.Web", "TaxiRateApp.Web\TaxiRateApp.Web.csproj", "{148C4123-6E60-445C-8956-C4B6A81C1FF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiRateApp.Web", "TaxiRateApp.Web\TaxiRateApp.Web.csproj", "{148C4123-6E60-445C-8956-C4B6A81C1FF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiRateApp.Business", "TaxiRateApp.Business\TaxiRateApp.Business.csproj", "{ACE8A255-61D7-43B3-995B-BA4E8EDE426F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiRateApp.Business", "TaxiRateApp.Business\TaxiRateApp.Business.csproj", "{ACE8A255-61D7-43B3-995B-BA4E8EDE426F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiRateApp.DataAccess", "TaxiRateApp.DataAccess\TaxiRateApp.DataAccess.csproj", "{ED99940E-CB90-4EEB-B106-F2689A458E53}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiRateApp.DataAccess", "TaxiRateApp.DataAccess\TaxiRateApp.DataAccess.csproj", "{ED99940E-CB90-4EEB-B106-F2689A458E53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiRateApp.Core", "TaxiRateApp.Core\TaxiRateApp.Core.csproj", "{BC52764F-DE74-4262-B766-08CBE96666CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiRateApp.Core", "TaxiRateApp.Core\TaxiRateApp.Core.csproj", "{BC52764F-DE74-4262-B766-08CBE96666CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiRateApp.Entities", "TaxiRateApp.Entities\TaxiRateApp.Entities.csproj", "{64AB2A75-2EF1-4970-B027-C2A587FBDC6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiRateApp.Entities", "TaxiRateApp.Entities\TaxiRateApp.Entities.csproj", "{64AB2A75-2EF1-4970-B027-C2A587FBDC6D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiRateApp.REST", "TaxiRateApp.REST\TaxiRateApp.REST.csproj", "{EDD31B48-D0C4-4F2E-8EE8-2A4EB4C4919E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiRateApp.REST", "TaxiRateApp.REST\TaxiRateApp.REST.csproj", "{EDD31B48-D0C4-4F2E-8EE8-2A4EB4C4919E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

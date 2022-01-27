@@ -1,0 +1,50 @@
+﻿header.masthead {
+    position: relative;
+    background-size: cover;
+    padding-top: 1rem;
+    padding-bottom: 8rem;
+    margin-top: 3rem;
+    border-radius: 10px;
+}
+
+    header.masthead:before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+    }
+
+    
+
+@media (min-width: 768px) {
+    header.masthead {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+        header.masthead h1, header.masthead .h1 {
+            font-size: 3rem;
+        }
+}
+
+body{
+    height:2000px
+}
+
+
+.background-image {
+    z-index: 1;
+    background-image: url("../img/HomeBanner.png");
+    background-position:center center;
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height:200px
+}

@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiRateApp.Entities", "Tax
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaxiRateApp.REST", "TaxiRateApp.REST\TaxiRateApp.REST.csproj", "{EDD31B48-D0C4-4F2E-8EE8-2A4EB4C4919E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaxiRateApp.Web.UI", "TaxiRateApp.Web.UI\TaxiRateApp.Web.UI.csproj", "{D633E35E-691B-48EE-B43B-D5C7E63B620E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,12 +49,17 @@ Global
 		{EDD31B48-D0C4-4F2E-8EE8-2A4EB4C4919E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDD31B48-D0C4-4F2E-8EE8-2A4EB4C4919E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDD31B48-D0C4-4F2E-8EE8-2A4EB4C4919E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D633E35E-691B-48EE-B43B-D5C7E63B620E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D633E35E-691B-48EE-B43B-D5C7E63B620E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D633E35E-691B-48EE-B43B-D5C7E63B620E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D633E35E-691B-48EE-B43B-D5C7E63B620E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{148C4123-6E60-445C-8956-C4B6A81C1FF0} = {22161CCF-3C3F-48CD-B80B-BA22F484B714}
+		{D633E35E-691B-48EE-B43B-D5C7E63B620E} = {22161CCF-3C3F-48CD-B80B-BA22F484B714}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {573086F0-F8B0-4C60-A13A-D5DD47196C7E}

@@ -20,7 +20,7 @@ a {
 .content {
     position: relative;
     margin: auto;
-    background-color: #3c373e;
+    background-color: #3c373e !important;
     border-radius:30px;
     box-shadow:inherit;
 }

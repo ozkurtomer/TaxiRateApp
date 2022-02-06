@@ -1,41 +1,29 @@
 ﻿<link rel="stylesheet" href="~/Views/Home/css/home.css" />
 
+@model IDataResult<List<Posts>>
+
 <header class="masthead">
 
-    <div class="background-image"></div>
+    <div class="jumbotron background-image">
 
-        <div class="container position-relative">
+        <h1 class="display-5 text-white ubuntu-font">TaksiPaunla.com'a hoşgeldiniz!</h1>
 
-            <div class="row justify-content-center">
+        <p class="lead text-white ubuntu-font">Sizde yaşadığınız taksi tecrübelerini herkesle paylaşabilir veya alt kısımdan mevcut görüşleri arayabilirsiniz!</p>
 
-                <div class="col-xl-6">
+        <hr class="my-4">
 
-                    <div class="text-center text-white">
+        <p class="lead text-white ubuntu-font">
 
-                        <h1 class="mb-5">Sizde Görüşlerinizi Paylaşın!</h1>
+            @await Html.PartialAsync("_SearchArea")
 
-                        <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-
-                            <div class="row">
-
-                                <div class="col">
-
-                                    <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-
-                                </div>
-
-                                <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-
-                            </div>
-
-                        </form>
-
-                    </div>
-
-                </div>
-
-            </div>
+        </p>
 
     </div>
 
 </header>
+
+<section>
+
+    @await Html.PartialAsync("_LastPostsTable")
+
+</section>

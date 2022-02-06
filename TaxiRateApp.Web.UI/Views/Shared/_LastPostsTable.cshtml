@@ -1,0 +1,68 @@
+﻿<link rel="stylesheet" href="~/Views/Home/css/posts-table.css" />
+
+<div class="content">
+
+    <div class="table-responsive mx-4 mt-5">
+
+        <h2 class="mb-5 mt-4 text-light">#Son @Model.Data.Count Gönderi</h2>
+
+        <div class="table-responsive">
+
+            <table class="table table-striped custom-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th scope="col">Tarih</th>
+                        <th scope="col">Şehir</th>
+                        <th scope="col">Plaka</th>
+                        <th scope="col">Puan</th>
+                        <th scope="col">Açıklama</th>
+                        <th scope="col"></th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model.Data)
+                    {
+                        <tr scope="row">
+
+
+                            <td>@item.Post_CreatedDate.ToShortDateString()</td>
+
+                            <td>@item.City.City_Name</td>
+
+                            <td>@item.Post_Plate</td>
+
+                            <td>
+                                @for (int i = 0; i < item.Post_Stars; i++)
+                                {
+                                    <i id="star" class="fas fa-star more-star"></i>
+                                }
+                            </td>
+
+                            <td>
+                                @item.Post_Title
+                                <small class="d-block">@item.Post_Description.Substring(0,/*item.Post_Description.Substring(0,6).LastIndexOf(" ")*/16)...</small>
+                            </td>
+
+                            <td>
+                                <a href="/Posts/PostsDetails?postId=@item.Post_Id" class="more">İncele</a>
+                            </td>
+
+                        </tr>
+
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>

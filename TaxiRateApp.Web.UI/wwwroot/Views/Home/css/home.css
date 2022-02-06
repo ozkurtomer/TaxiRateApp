@@ -2,49 +2,46 @@
     position: relative;
     background-size: cover;
     padding-top: 1rem;
-    padding-bottom: 8rem;
-    margin-top: 3rem;
+    margin-top: 3.2rem;
     border-radius: 10px;
 }
 
-    header.masthead:before {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 0;
-        left: 0;
-        opacity: 0.5;
-    }
-
-    
-
-@media (min-width: 768px) {
-    header.masthead {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-
-        header.masthead h1, header.masthead .h1 {
-            font-size: 3rem;
-        }
+.plate {
+    display: block;
+    margin: .5em auto;
+    border: none;
+    padding: 0;
+    width: 10.5ch;
+    background: white;
+    font: 3ch droid sans mono, consolas, monospace;
+    letter-spacing: 0.5ch;
+    background: repeating-linear-gradient(90deg, dimgrey 0, dimgrey 1ch, transparent 0, transparent 1.5ch) 0 100%/10ch 2px no-repeat;
 }
 
-body{
-    height:2000px
-}
+    .plate:focus {
+        outline: none;
+        color: dodgerblue;
+    }
 
+
+body {
+    height: 2000px
+}
 
 .background-image {
     z-index: 1;
     background-image: url("../img/HomeBanner.png");
-    background-position:center center;
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    height:200px
+    position: relative;
+    border-radius: 1rem !important
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
 }

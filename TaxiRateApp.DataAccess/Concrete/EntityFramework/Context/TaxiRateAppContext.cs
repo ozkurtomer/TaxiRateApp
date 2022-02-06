@@ -121,6 +121,13 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
                     .HasColumnName("Post_CreatedDate")
                     .HasColumnType("datetime");
 
+                entity.Property(e => e.Post_Title)
+                    .IsRequired()
+                    .HasColumnName("Post_Title")
+                    .HasColumnType("varchar(55)")
+                    .HasCharSet("utf8")
+                    .HasCollation("utf8_general_ci");
+
                 entity.Property(e => e.Post_Description)
                     .IsRequired()
                     .HasColumnName("Post_Description")

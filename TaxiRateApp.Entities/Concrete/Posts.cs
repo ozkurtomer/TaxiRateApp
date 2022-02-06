@@ -10,6 +10,7 @@ namespace TaxiRateApp.Entities.Concrete
         public int User_Id { get; set; }
         public int City_Id { get; set; }
         public string Post_Plate { get; set; }
+        public string Post_Title { get; set; }
         public string Post_Description { get; set; }
         public int? Post_Stars { get; set; }
         public int? Post_LikeCount { get; set; }

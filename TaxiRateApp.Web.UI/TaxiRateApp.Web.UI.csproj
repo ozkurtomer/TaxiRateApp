@@ -17,4 +17,8 @@
     <Folder Include="wwwroot\Views\Layout\svg\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TaxiRateApp.Business\TaxiRateApp.Business.csproj" />
+  </ItemGroup>
+
 </Project>

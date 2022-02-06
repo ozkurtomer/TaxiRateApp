@@ -1,0 +1,59 @@
+﻿.search-area {
+    padding: 1px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 380px;
+}
+
+.CardInner {
+    padding: 4px 4px;
+    background-color: #e2e9f4;
+}
+
+
+.Icon {
+    min-width: 46px;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin-right: 12px;
+    box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.6), 2px 2px 12px #c8d8e7;
+    cursor: pointer;
+}
+
+    .Icon svg {
+        transform: translate(-1px, -1px);
+    }
+
+.InputContainer {
+    width: 100%;
+}
+
+.InputContainer {
+    --top-shadow: inset 1px 1px 3px #c5d4e3, inset 2px 2px 6px #c5d4e3;
+    --bottom-shadow: inset -2px -2px 4px rgba(255,255,255, .7);
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .InputContainer:before, .InputContainer:after {
+        left: 0;
+        top: 0;
+        display: block;
+        content: "";
+        pointer-events: none;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+
+    .InputContainer:before {
+        box-shadow: var(--bottom-shadow);
+    }
+
+    .InputContainer:after {
+        box-shadow: var(--top-shadow);
+    }

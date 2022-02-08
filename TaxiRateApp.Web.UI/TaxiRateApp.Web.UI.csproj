@@ -12,9 +12,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
     <Folder Include="wwwroot\Views\Home\img\" />
+    <Folder Include="wwwroot\Views\Layout\image\" />
     <Folder Include="wwwroot\Views\Layout\svg\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="RestSharp" Version="106.13.0" />
   </ItemGroup>
 
   <ItemGroup>

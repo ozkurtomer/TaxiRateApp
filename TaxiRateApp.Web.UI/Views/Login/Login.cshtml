@@ -1,0 +1,54 @@
+﻿<link rel="stylesheet" href="~/Views/Login/css/login.css" />
+@model UserForLoginViewModel
+
+<section class="vh-100 ubuntu-font">
+
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+
+        <div class="container">
+
+            <div class="row d-flex justify-content-center align-items-center h-100">
+
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+
+                    <div class="card shadow" style="border-radius: 15px;">
+
+                        <div class="card-body">
+
+                            <h2 class="text-uppercase text-center mb-2">Giriş Yap</h2>
+
+                            <form asp-controller="Login" asp-action="Login" method="post">
+
+                                <div asp-validation-summary="All" class="text-danger"></div>
+
+                                <div class="form-outline mb-4">
+
+                                    <label class="form-label" asp-for="UserEmail">E-Posta</label>
+                                    <input type="email" asp-for="UserEmail" class="form-control form-control-lg" />
+
+                                </div>
+
+                                <div class="form-outline mb-4">
+
+                                    <label class="form-label" asp-for="UserPassword" >Şifre</label>
+                                    <input type="password" asp-for="UserPassword" class="form-control form-control-lg" />
+
+                                </div>
+
+                                <div class="d-flex justify-content-center">
+
+                                    <button type="submit" class="btn btn-block btn-lg text-body button-border">Giriş Yap</button>
+
+                                </div>
+
+                                <p class="text-center text-muted mt-5 mb-0">Henüz hesabınız yok mu? <a asp-controller="Register" asp-action="Register" class="fw-bold text-body"><u>Kayıt Ol</u></a></p>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

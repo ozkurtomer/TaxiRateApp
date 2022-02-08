@@ -23,11 +23,6 @@
         color: dodgerblue;
     }
 
-
-body {
-    height: 2000px
-}
-
 .background-image {
     z-index: 1;
     background-image: url("../img/HomeBanner.png");
@@ -35,7 +30,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
-    border-radius: 1rem !important
+    border-radius: 1rem !important;
+    filter: grayscale(50%);
 }
 
 .centered {

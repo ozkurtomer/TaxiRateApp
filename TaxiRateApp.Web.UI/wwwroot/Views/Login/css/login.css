@@ -1,0 +1,21 @@
+﻿.button-border {
+    border: 1px solid #212529 !important;
+    border-radius: 20px;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+}
+
+    .button-border:hover {
+        border-radius: 20px;
+        background-color: #212529 !important;
+        color: #f8f9fa !important;
+    }
+
+.center-div {
+    position: relative;
+    top: 100%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}

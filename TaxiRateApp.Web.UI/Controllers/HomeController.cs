@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using TaxiRateApp.Business.Concrete;
 using TaxiRateApp.DataAccess.Concrete.EntityFramework;
+using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.Web.UI.Controllers
 {
@@ -10,8 +12,9 @@ namespace TaxiRateApp.Web.UI.Controllers
 
         public IActionResult Index()
         {
-            var result = postsManager.GetPostsHomeScreen();
-            return View(result);
+            //var result = postsManager.GetPostsHomeScreen();
+            //return View(result);
+            return View();
         }
     }
 }

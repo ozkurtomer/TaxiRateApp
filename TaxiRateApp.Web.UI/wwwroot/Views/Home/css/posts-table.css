@@ -1,6 +1,6 @@
 ﻿.content {
     background-color: #3c373e;
-    border-radius: 30px;
+    border-radius: 1rem !important;
     margin-top:200px;
 }
 
@@ -48,6 +48,7 @@
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
     transition: .3s all ease;
+    background-color:transparent !important;
 }
 
     .custom-table tbody tr:hover td, .custom-table tbody tr:focus td {

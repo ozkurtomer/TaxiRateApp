@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using TaxiRateApp.Business.Concrete;
+using TaxiRateApp.Core.Utilities.Results.Abstract;
+using TaxiRateApp.Core.Utilities.Results.Concrete;
 using TaxiRateApp.Core.Utilities.Security;
 using TaxiRateApp.DataAccess.Concrete.EntityFramework;
 using TaxiRateApp.Entities.Dtos;
@@ -25,7 +28,13 @@ namespace TaxiRateApp.Web.UI.Controllers
             var client = Client.ClientCreate(Constant.RegisterPath, false);
             var request = Client.CreateRequest(RestSharp.Method.POST, userForRegisterViewModel);
 
-            return RedirectToAction("Index", "Home");
+            var result = JsonConvert.DeserializeObject<ResultModel<AccessToken>>(client.Execute(request).Content);
+            if (result.Success)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(userForRegisterViewModel);
         }
     }
 }

@@ -11,13 +11,13 @@ namespace TaxiRateApp.Web.UI.Models
         [StringLength(55, MinimumLength = 5, ErrorMessage = "Kullanıcı adı alanı 5-55 karakter arasında olmalıdır")]
         public string UserUserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Şifre adı alanı zorunludur")]
         [DataType(DataType.Password)]
         public string UserPassword { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [Compare("UserPassword")]
+        [Compare("UserPassword",ErrorMessage ="Girmiş olduğunuz şifreler uyuşmuyor")]
         public string UserRePassword { get; set; }
 
         [Required]

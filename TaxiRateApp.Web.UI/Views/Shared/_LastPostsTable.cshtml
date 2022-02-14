@@ -4,7 +4,7 @@
 
     <div class="table-responsive mx-4 mt-5">
 
-        <h2 class="mb-5 mt-4 text-light">#Son @*@Model.Data.Count*@ 5 Gönderi</h2>
+        <h2 class="mb-5 mt-4 text-light">#Son @Model.Data.Count Gönderi</h2>
 
         <div class="table-responsive">
 
@@ -27,7 +27,7 @@
 
                 <tbody>
 
-                    @*@foreach (var item in Model.Data)
+                    @foreach (var item in Model.Data)
                     {
                         <tr scope="row">
 
@@ -56,7 +56,7 @@
 
                         </tr>
 
-                    }*@
+                    }
                 </tbody>
 
             </table>

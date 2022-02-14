@@ -75,7 +75,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<Users>(_usersDal.Get(x=>x.User_UserName == userName), Messages.UserGet);
+                return new SuccessDataResult<Users>(_usersDal.Get(x=>x.User_Email == userName), Messages.UserGet);
             }
 
             catch (Exception ex)

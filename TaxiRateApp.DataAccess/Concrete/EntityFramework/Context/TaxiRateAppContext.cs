@@ -29,7 +29,7 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseMySql("server=localhost;port=3306;database=TaxiRate;uid=root;password=1234", ServerVersion.Parse("5.7.32-mysql"));
-                optionsBuilder.UseMySql("server=91.151.89.14;port=3306;database=TaxiRate;uid=allhost;password=omer45871", ServerVersion.Parse("5.7.32-mysql"));
+                optionsBuilder.UseMySql("server=213.142.148.61;port=3306;database=TaxiRate;uid=allhost;password=omer45871", ServerVersion.Parse("5.7.32-mysql"));
             }
         }
 

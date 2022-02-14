@@ -28,7 +28,7 @@ namespace TaxiRateApp.Business.Concrete
 
         public IDataResult<Users> Login(UserForLoginDto userForLoginDto)
         {
-            var user = _usersService.GetByName(userForLoginDto.UserName);
+            var user = _usersService.GetByName(userForLoginDto.UserEmail);
             if (user.Data != null)
             {
                 if (!HashingHelper.VerifyPasswordHash(userForLoginDto.UserPassword, user.Data.User_PasswordHash.ToHexBytes(), user.Data.User_PasswordSalt.ToHexBytes()))

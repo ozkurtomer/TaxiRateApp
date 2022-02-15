@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace TaxiRateApp.Web.UI
 {
@@ -18,6 +20,20 @@ namespace TaxiRateApp.Web.UI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = "/login/login";
+                options.LogoutPath = "/login/logout";
+                options.AccessDeniedPath = "/login/accessdenied";
+                options.SlidingExpiration = true;
+                options.ExpireTimeSpan = TimeSpan.FromDays(365);
+                options.Cookie = new CookieBuilder()
+                {
+                    HttpOnly = true,
+                    Name = ".TaxiRateApp.Security.Cookie",
+                    SameSite = SameSiteMode.Strict
+                };
+            });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

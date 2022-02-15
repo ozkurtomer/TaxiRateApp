@@ -16,6 +16,9 @@
         "Kasım",
         "Aralık"
     };
+
+    bool isActive = true;
+    var date = DateTime.Now.AddDays(-4);
 }
 
 <div class="event-schedule-area-two bg-color pad100">
@@ -27,17 +30,31 @@
 
                 <ul class="nav custom-tab mt-5" id="myTab" role="tablist">
 
-
-                    @foreach (var item in Model.Data.Select(x => x.Post_CreatedDate))
+                    @for(int i = 0; i<5; i++)
                     {
                         <li class="nav-item">
 
-                            <a class="nav-link active show days" data-toggle="tab" href="#home" role="tab" data="item" aria-controls="home" aria-selected="true">
-                                <span>@item.Day @Months[item.Month - 1]</span>
+                            <a class="nav-link @(isActive ? "active":"") show days text-center" data-toggle="tab" href="#home" role="tab" data="item" aria-controls="home" aria-selected="@isActive">
+                                <span>@date.Day <br> @Months[date.Month - 1]</span>
                             </a>
 
                         </li>
+                        date = date.AddDays(1);
+                        isActive = false;
+
                     }
+
+                    @*@foreach (var item in Model.Data.Select(x => x.Post_CreatedDate))
+                    {
+                        <li class="nav-item">
+
+                            <a class="nav-link @(isActive ? "active":"") show days text-center" data-toggle="tab" href="#home" role="tab" data="item" aria-controls="home" aria-selected="@isActive">
+                                <span>@item.Day <br> @Months[item.Month - 1]</span>
+                            </a>
+
+                        </li>
+                        isActive = false;
+                    }*@
 
                 </ul>
 
@@ -64,7 +81,7 @@
 
                                 <tbody>
 
-                                    @foreach (var item in Model.Data)
+                                    @foreach (var item in Model.Data/*.Where(x=>x.Post_CreatedDate.ToShortDateString() == DateTime.Now.ToShortDateString())*/)
                                     {
                                         <tr class="inner-box">
                                             <th scope="row">
@@ -75,12 +92,12 @@
                                             </th>
                                             <td>
                                                 <div class="event-wrap">
-                                                    <h3><a href="#">@item.City.City_Name</a></h3>
+                                                    <span>@item.City.City_Name</span>
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="event-wrap">
-                                                    <h3><a href="#">@item.Post_Plate</a></h3>
+                                                    <span>@item.Post_Plate</span>
                                                 </div>
                                             </td>
                                             <td>

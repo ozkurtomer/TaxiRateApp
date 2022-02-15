@@ -139,7 +139,7 @@
             }
 
             .event-schedule-area-two ul.custom-tab li a.active {
-                color: #212529;
+                color: #4125dd;
             }
 
 .event-schedule-area-two .primary-btn {
@@ -161,7 +161,6 @@
 
         .event-schedule-area-two .tab-content .table thead tr th {
             padding: 20px;
-            border: 0;
         }
 
     .event-schedule-area-two .tab-content .table tbody {
@@ -184,7 +183,7 @@
             }
 
                 .event-schedule-area-two .tab-content .table tbody tr th .event-date span {
-                    font-size: 50px;
+                    font-size: 2rem;
                     line-height: 50px;
                     font-weight: normal;
                 }
@@ -201,14 +200,15 @@
             .event-schedule-area-two .tab-content .table tbody tr td .event-wrap h3 a {
                 font-size: 20px;
                 line-height: 20px;
-                color: #cf057c;
+                color: rgb(33, 37, 41);
                 -webkit-transition: all 0.4s;
                 -o-transition: all 0.4s;
                 transition: all 0.4s;
+                text-decoration: none;
             }
 
                 .event-schedule-area-two .tab-content .table tbody tr td .event-wrap h3 a:hover {
-                    color: #4125dd;
+                    cursor:none;
                 }
 
             .event-schedule-area-two .tab-content .table tbody tr td .event-wrap .categories {

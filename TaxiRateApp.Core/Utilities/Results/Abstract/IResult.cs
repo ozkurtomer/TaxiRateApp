@@ -10,5 +10,7 @@ namespace TaxiRateApp.Core.Utilities.Results.Abstract
     {
         bool Success { get; }
         string Message { get; }
+        int TotalItemsCount { get; }
+        int ItemPerPage { get; }
     }
 }

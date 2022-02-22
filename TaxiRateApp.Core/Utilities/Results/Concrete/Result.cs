@@ -9,6 +9,13 @@ namespace TaxiRateApp.Core.Utilities.Results.Concrete
 {
     public class Result : IResult
     {
+        public Result(bool success, string message, int totalItemCount, int itemPerPage) : this(success)
+        {
+            Message = message;
+            TotalItemsCount = totalItemCount;
+            ItemPerPage = itemPerPage;
+        }
+
         public Result(bool success, string message) : this(success)
         {
             Message = message;
@@ -22,5 +29,9 @@ namespace TaxiRateApp.Core.Utilities.Results.Concrete
         public bool Success { get; }
 
         public string Message { get; }
+
+        public int TotalItemsCount { get; }
+
+        public int ItemPerPage { get; }
     }
 }

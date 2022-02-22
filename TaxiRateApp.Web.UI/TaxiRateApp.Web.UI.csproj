@@ -12,6 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Posts\1PostList.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\Views\Home\img\" />
     <Folder Include="wwwroot\Views\Layout\image\" />
     <Folder Include="wwwroot\Views\Layout\svg\" />

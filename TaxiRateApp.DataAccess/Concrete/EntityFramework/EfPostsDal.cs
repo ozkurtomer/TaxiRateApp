@@ -28,7 +28,7 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework
                         Post_Stars = x.Post_Stars,
                         Post_LikeCount = x.Post_LikeCount,
                         Post_Title = x.Post_Title
-                    });
+                    }).OrderByDescending(x=>x.Post_CreatedDate);
                     return result.ToList();
                 }
 

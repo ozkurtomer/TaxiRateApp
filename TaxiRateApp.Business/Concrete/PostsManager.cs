@@ -105,7 +105,8 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<List<Posts>>(_postsDal.GetPostsHomeScreen(),Messages.PostGet);
+                var result = _postsDal.GetPostsHomeScreen();
+                return new SuccessDataResult<List<Posts>>(result, Messages.PostGet, result.Count, 100);
             }
 
             catch (Exception ex)
@@ -118,7 +119,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                return new SuccessDataResult<Posts>(_postsDal.Get(x=>x.Post_Id == postId), Messages.PostGet);
+                return new SuccessDataResult<Posts>(_postsDal.Get(x => x.Post_Id == postId), Messages.PostGet);
             }
 
             catch (Exception ex)

@@ -14,7 +14,7 @@ namespace TaxiRateApp.Core.Utilities.Results.Concrete
             Data = data;
         }
 
-        public DataResult(T data, bool success, string message, int totalItemsCount, int itemsPerPage) : base(success, message)
+        public DataResult(T data, bool success, string message, int totalItemsCounts, int itemsPerPages) : base(success, message,totalItemsCounts,itemsPerPages)
         {
             Data = data;
         }

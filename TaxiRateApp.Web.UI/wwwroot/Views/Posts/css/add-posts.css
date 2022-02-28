@@ -1,0 +1,195 @@
+﻿/*.chosen-value,
+.value-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.chosen-value {
+    font-family: "Ek Mukta";
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 4px;
+    height: 4rem;
+    font-size: 1.1rem;
+    padding: 1rem;
+    background-color: #fafcfd;
+    border: 3px solid transparent;
+    transition: 0.3s ease-in-out;
+}
+
+    .chosen-value::-webkit-input-placeholder {
+        color: #333;
+    }
+
+    .chosen-value:hover {
+        background-color: #ff908b;
+        cursor: pointer;
+    }
+
+        .chosen-value:hover::-webkit-input-placeholder {
+            color: #333;
+        }
+
+    .chosen-value:focus, .chosen-value.open {
+        box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+        outline: 0;
+        background-color: #ff908b;
+        color: #000;
+    }
+
+        .chosen-value:focus::-webkit-input-placeholder, .chosen-value.open::-webkit-input-placeholder {
+            color: #000;
+        }
+
+.value-list {
+    list-style: none;
+    margin-top: 4rem;
+    box-shadow: 0px 5px 8px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-height: 0;
+    transition: 0.3s ease-in-out;
+}
+
+    .value-list.open {
+        max-height: 320px;
+        overflow: auto;
+    }
+
+    .value-list li {
+        position: relative;
+        height: 4rem;
+        background-color: #fafcfd;
+        padding: 1rem;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        opacity: 1;
+    }
+
+        .value-list li:hover {
+            background-color: #ff908b;
+        }
+
+        .value-list li.closed {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0;
+            opacity: 0;
+        }
+*/
+
+.input-star {
+    display: none;
+}
+
+.label-star {
+    cursor: pointer;
+    font-size: 30px;
+    color: yellow;
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 60px;
+    text-align: center;
+    float: left;
+    -moz-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
+    text-shadow: 0 1px 1px black;
+}
+
+    .label-star:hover {
+        font-size: 30px;
+        color: #FFF;
+        text-shadow: 0 0 1px #b9c9d8;
+    }
+
+    .label-star:before {
+        display: inline;
+        width: auto;
+        height: auto;
+        line-height: normal;
+        vertical-align: baseline;
+        margin-top: 0;
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        text-decoration: inherit;
+        -webkit-font-smoothing: antialiased;
+        content: "\f005";
+    }
+
+.input-star:checked + .label-star ~ .label-star:before {
+    content: "\f006";
+}
+
+#wrapper {
+    display: inline-block;
+}
+
+    #wrapper:hover .label-star:before {
+        content: "\f005";
+    }
+
+    #wrapper:hover .label-star:hover ~ .label-star:before {
+        content: "\f006";
+    }
+
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:600&display=swap");
+
+.submit-button {
+    position: relative;
+    display: inline-flex;
+    width: 180px;
+    height: 55px;
+    margin: 0 15px;
+    perspective: 1000px;
+}
+
+    .submit-button a {
+        font-size: 19px;
+        letter-spacing: 1px;
+        transform-style: preserve-3d;
+        transform: translateZ(-25px);
+        transition: transform 0.25s;
+        font-family: "Montserrat", sans-serif;
+    }
+
+        .submit-button a:before,
+        .submit-button a:after {
+            position: absolute;
+            content: "Paylaş";
+            height: 55px;
+            width: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid black;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+
+        .submit-button a:before {
+            color: #fff;
+            background: #000;
+            transform: rotateY(0deg) translateZ(25px);
+        }
+
+        .submit-button a:after {
+            color: #000;
+            transform: rotateX(90deg) translateZ(25px);
+        }
+
+        .submit-button a:hover {
+            transform: translateZ(-25px) rotateX(-90deg);
+        }
+
+.rounded-card{
+    border-radius:15px;
+}

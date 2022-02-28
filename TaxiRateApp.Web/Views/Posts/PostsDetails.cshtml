@@ -30,12 +30,12 @@
                                 <ul>
                                     <li>
                                         <a href="#">
-                                            <i class="far fa-calendar-alt"></i> @Model.Data.Post_CreatedDate.ToShortDateString()
+                                            <i class="far fa-calendar-alt"></i> 
                                         </a>
                                     </li>
                                     <li class="mx-2">
                                         <a href="#">
-                                            <i class="far fa-thumbs-up"></i> @Model.Data.Post_LikeCount
+                                            <i class="far fa-thumbs-up"></i> 
                                         </a>
                                     </li>
                                     <li>
@@ -52,14 +52,13 @@
                             <a href="single.html">Başlık </a>
                         </h3>
                         <p>
-                            @Model.Data.Post_Description
                         </p>
 
                     </div>
 
 
                     @*@await Html.PartialAsync("~/Views/Comment/CommentListPartial.cshtml",Model.Data.Comments)*@
-                    @await Component.InvokeAsync("CommentListByPost",new {postId=@Model.Data.Post_Id})
+                    @await Component.InvokeAsync("CommentListByPost",new {})
 
                     @await Html.PartialAsync("~/Views/Comment/CommentAddPartial.cshtml")
 

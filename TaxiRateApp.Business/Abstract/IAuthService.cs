@@ -1,7 +1,7 @@
-﻿using TaxiRateApp.Core.Utilities.Results.Abstract;
-using TaxiRateApp.Core.Utilities.Security;
+﻿using TaxiRateApp.Entities.Dtos;
 using TaxiRateApp.Entities.Concrete;
-using TaxiRateApp.Entities.Dtos;
+using TaxiRateApp.Core.Utilities.Security;
+using TaxiRateApp.Core.Utilities.Results.Abstract;
 
 namespace TaxiRateApp.Business.Abstract
 {

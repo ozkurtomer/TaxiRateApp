@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using TaxiRateApp.Entities.Abstract;
 
 namespace TaxiRateApp.Core.DataAccess.EntityFramework

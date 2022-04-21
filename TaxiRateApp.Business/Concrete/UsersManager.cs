@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TaxiRateApp.Business.Abstract;
+using TaxiRateApp.Entities.Concrete;
 using TaxiRateApp.Business.Constants;
+using TaxiRateApp.DataAccess.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Concrete;
-using TaxiRateApp.DataAccess.Abstract;
-using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.Business.Concrete
 {

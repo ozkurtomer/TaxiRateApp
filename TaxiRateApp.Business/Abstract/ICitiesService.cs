@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaxiRateApp.Core.Utilities.Results.Abstract;
+﻿using System.Collections.Generic;
 using TaxiRateApp.Entities.Concrete;
+using TaxiRateApp.Core.Utilities.Results.Abstract;
 
 namespace TaxiRateApp.Business.Abstract
 {

@@ -1,14 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using TaxiRateApp.Core.DataAccess.EntityFramework;
-using TaxiRateApp.DataAccess.Abstract;
-using TaxiRateApp.DataAccess.Concrete.EntityFramework.Context;
+using System.Collections.Generic;
 using TaxiRateApp.Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
+using TaxiRateApp.DataAccess.Abstract;
+using TaxiRateApp.Core.DataAccess.EntityFramework;
+using TaxiRateApp.DataAccess.Concrete.EntityFramework.Context;
 
 namespace TaxiRateApp.DataAccess.Concrete.EntityFramework
 {

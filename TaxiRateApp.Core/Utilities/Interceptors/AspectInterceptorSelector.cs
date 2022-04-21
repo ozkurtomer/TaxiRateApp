@@ -1,7 +1,7 @@
-﻿using Castle.DynamicProxy;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
+using Castle.DynamicProxy;
 
 namespace TaxiRateApp.Core.Utilities.Interceptors
 {

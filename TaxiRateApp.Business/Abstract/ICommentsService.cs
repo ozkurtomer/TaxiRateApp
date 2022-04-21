@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Entities.Concrete;
+using TaxiRateApp.Core.Utilities.Results.Abstract;
 
 namespace TaxiRateApp.Business.Abstract
 {

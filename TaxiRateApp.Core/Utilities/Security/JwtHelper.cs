@@ -1,9 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using TaxiRateApp.Core.Utilities.Security.Encryption;
+﻿using System;
 using TaxiRateApp.Entities.Concrete;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using Microsoft.Extensions.Configuration;
+using TaxiRateApp.Core.Utilities.Security.Encryption;
 
 namespace TaxiRateApp.Core.Utilities.Security
 {

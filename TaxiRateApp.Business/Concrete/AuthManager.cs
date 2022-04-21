@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaxiRateApp.Business.Abstract;
-using TaxiRateApp.Business.Constants;
+using TaxiRateApp.Entities.Dtos;
 using TaxiRateApp.Core.Extensions;
+using TaxiRateApp.Business.Abstract;
+using TaxiRateApp.Entities.Concrete;
+using TaxiRateApp.Business.Constants;
+using TaxiRateApp.Core.Utilities.Security;
 using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Concrete;
-using TaxiRateApp.Core.Utilities.Security;
 using TaxiRateApp.Core.Utilities.Security.Hashing;
-using TaxiRateApp.Entities.Concrete;
-using TaxiRateApp.Entities.Dtos;
 
 namespace TaxiRateApp.Business.Concrete
 {

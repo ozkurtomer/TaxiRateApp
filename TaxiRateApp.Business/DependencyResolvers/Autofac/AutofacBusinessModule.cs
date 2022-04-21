@@ -1,16 +1,11 @@
 ﻿using Autofac;
-using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Autofac.Extras.DynamicProxy;
 using TaxiRateApp.Business.Abstract;
 using TaxiRateApp.Business.Concrete;
-using TaxiRateApp.Core.Utilities.Interceptors;
-using TaxiRateApp.Core.Utilities.Security;
 using TaxiRateApp.DataAccess.Abstract;
+using TaxiRateApp.Core.Utilities.Security;
+using TaxiRateApp.Core.Utilities.Interceptors;
 using TaxiRateApp.DataAccess.Concrete.EntityFramework;
 
 namespace TaxiRateApp.Business.DependencyResolvers.Autofac

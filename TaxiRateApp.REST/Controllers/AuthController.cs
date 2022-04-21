@@ -1,7 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using TaxiRateApp.Business.Abstract;
+﻿using Microsoft.AspNetCore.Mvc;
 using TaxiRateApp.Entities.Dtos;
+using TaxiRateApp.Business.Abstract;
 
 namespace TaxiRateApp.REST.Controllers
 {

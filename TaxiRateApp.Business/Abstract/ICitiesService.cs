@@ -9,6 +9,7 @@ namespace TaxiRateApp.Business.Abstract
         IDataResult<List<Cities>> GetAll();
         IDataResult<Cities> GetById(int cityId);
         IDataResult<Cities> GetByName(string cityName);
+        IDataResult<List<Cities>> GetPopularFiveCity();
 
         IResult Add(Cities cities);
         IResult Update(Cities cities);

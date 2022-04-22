@@ -128,5 +128,24 @@ namespace TaxiRateApp.REST.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        
+        [HttpGet("getpopularfivecity")]
+        public IActionResult GetPopularFiveCity()
+        {
+            try
+            {
+                var result = _citiesService.GetPopularFiveCity();
+                if (result.Success)
+                {
+                    return Ok(result);
+                }
+                return BadRequest(result);
+
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

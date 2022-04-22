@@ -72,8 +72,8 @@ namespace TaxiRateApp.REST.Controllers
             }
         }
 
-        [HttpGet("getall")]
-        public IActionResult GetAll()
+        [HttpGet("getpostshomescreen")]
+        public IActionResult GetPostsHomeScreen()
         {
             try
             {

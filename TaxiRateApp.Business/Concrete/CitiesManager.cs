@@ -6,6 +6,7 @@ using TaxiRateApp.Business.Constants;
 using TaxiRateApp.DataAccess.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Concrete;
+using System.Linq;
 
 namespace TaxiRateApp.Business.Concrete
 {
@@ -65,6 +66,19 @@ namespace TaxiRateApp.Business.Concrete
             try
             {
                 return new SuccessDataResult<List<Cities>>(_citiesDal.GetAll(x => x.IsActive), Messages.CityGet);
+            }
+
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Cities>>(ex.Message);
+            }
+        }
+
+        public IDataResult<List<Cities>> GetPopularFiveCity()
+        {
+            try
+            {
+                return new SuccessDataResult<List<Cities>>(_citiesDal.GetAll().Where(x=>x.City_Id == 34 || x.City_Id == 6 || x.City_Id == 35 || x.City_Id == 16 || x.City_Id == 7).ToList(), Messages.CityGet);
             }
 
             catch (Exception ex)

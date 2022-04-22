@@ -47,6 +47,7 @@ namespace TaxiRateApp.REST.Controllers
                 return BadRequest(result);
 
             }
+
             catch (System.Exception ex)
             {
                 return BadRequest(ex.Message);

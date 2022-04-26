@@ -33,7 +33,7 @@ namespace TaxiRateApp.Core.Utilities.Security
             {
                 Token = token,
                 Expiration = _accessTokenExpiration,
-                UserId = users.User_Id
+                UserName = users.User_Name
             };
 
         }

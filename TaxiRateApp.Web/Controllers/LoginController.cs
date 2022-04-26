@@ -35,7 +35,7 @@ namespace TaxiRateApp.Web.Controllers
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Sid,$"{result.data.UserId}")
+                    new Claim(ClaimTypes.Name,$"{result.data.UserName}")
                 };
                 var userIdentity = new ClaimsIdentity(claims,"a");
                 ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(userIdentity);

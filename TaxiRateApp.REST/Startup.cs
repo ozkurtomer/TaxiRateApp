@@ -31,7 +31,7 @@ namespace TaxiRateApp.REST
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowOrigin",
-                    builder => builder.WithOrigins("http://localhost:4200")
+                    builder => builder.WithOrigins("http://localhost:4200/", "https://www.taksipuanla.com/", "https://dev.taksipuanla.com/")
                     .AllowAnyMethod()
                     .AllowAnyHeader());
             });

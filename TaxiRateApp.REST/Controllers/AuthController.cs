@@ -21,7 +21,7 @@ namespace TaxiRateApp.REST.Controllers
             var userToLogin = _authService.Login(userForLoginDto);
             if (!userToLogin.Success)
             {
-                return BadRequest(userToLogin);
+                return Ok(userToLogin);
             }
 
             var result = _authService.CreateAccessToken(userToLogin.Data);
@@ -30,7 +30,7 @@ namespace TaxiRateApp.REST.Controllers
                 return Ok(result);
             }
 
-            return BadRequest(result);
+            return Ok(result);
         }
 
         [HttpPost("register")]

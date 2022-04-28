@@ -48,7 +48,7 @@ namespace TaxiRateApp.Business.Concrete
             var result = _usersService.GetByName(userForRegisterDto.UserUserName);
             if (result.Data != null)
             {
-                return new ErrorDataResult<Users>( Messages.UserAlreadyExits);
+                return new ErrorDataResult<Users>(Messages.UserAlreadyExits);
             }
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
@@ -56,13 +56,13 @@ namespace TaxiRateApp.Business.Concrete
 
             var users = new Users
             {
-                User_Name = userForRegisterDto.UserName,
+                User_Name = userForRegisterDto.UserName.StringIsNullOrEmpty() ? "" : userForRegisterDto.UserName,
                 User_PasswordHash = passwordHash.ToHexString(),
                 User_PasswordSalt = passwordSalt.ToHexString(),
                 User_Email = userForRegisterDto.UserEmail,
                 User_CreatedDate = DateTime.Now,
                 User_UserName = userForRegisterDto.UserUserName,
-                User_Ip = "12341232",
+                User_Ip = userForRegisterDto.UserIpAddress,
                 User_Anonymous = userForRegisterDto.UserAnonymous,
                 User_IsActive = false,
             };

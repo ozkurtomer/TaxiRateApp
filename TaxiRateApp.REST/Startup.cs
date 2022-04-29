@@ -35,6 +35,14 @@ namespace TaxiRateApp.REST
             });
             services.AddControllers();
 
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowOrigin",
+            //        builder => builder.WithOrigins("http://localhost:4200/", "https://www.taksipuanla.com/", "https://dev.taksipuanla.com/")
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader());
+            //});
+
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -65,6 +73,12 @@ namespace TaxiRateApp.REST
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TaxiRateApp.REST v1"));
             }
 
+            //app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+            app.UseCors(bldr => bldr
+                       .WithOrigins("https://dev.taksipuanla.com")
+                       .WithMethods("GET", "POST")
+                       .AllowAnyHeader()
+);
             app.UseHttpsRedirection();
 
             app.UseRouting();

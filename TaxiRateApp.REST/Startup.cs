@@ -73,9 +73,8 @@ namespace TaxiRateApp.REST
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "TaxiRateApp.REST v1"));
             }
 
-            //app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
             app.UseCors(bldr => bldr
-                       .WithOrigins("https://dev.taksipuanla.com")
+                       .WithOrigins("https://dev.taksipuanla.com", "http://localhost:4200")
                        .WithMethods("GET", "POST")
                        .AllowAnyHeader()
 );

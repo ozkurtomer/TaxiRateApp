@@ -21,11 +21,11 @@ namespace TaxiRateApp.Business.Concrete
             _postsDal = postsDal;
         }
 
-        public IResult Add(Posts posts)
+        public async Task<IResult> Add(Posts posts)
         {
             try
             {
-                _postsDal.Add(posts);
+                await _postsDal.Add(posts);
                 return new SuccessResult(Messages.PostAdded);
             }
 
@@ -35,11 +35,11 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IResult Update(Posts posts)
+        public async Task<IResult> Update(Posts posts)
         {
             try
             {
-                _postsDal.Update(posts);
+                await _postsDal.Update(posts);
                 return new SuccessResult(Messages.PostUpdated);
             }
 
@@ -49,11 +49,11 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IResult Delete(Posts posts)
+        public async Task<IResult> Delete(Posts posts)
         {
             try
             {
-                _postsDal.Delete(posts);
+                await _postsDal.Delete(posts);
                 return new SuccessResult(Messages.PostDeleted);
             }
 
@@ -63,11 +63,12 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<List<Posts>> GetAll()
+        public async Task<IDataResult<List<Posts>>> GetAll()
         {
             try
             {
-                var result = _postsDal.GetAll(x => x.Post_IsActive).Select(x => new Posts
+                var result = await _postsDal.GetAll();
+                var resultOfSelect = result.Select(x => new Posts
                 {
                     City = x.City,
                     City_Id = x.City_Id,
@@ -79,6 +80,20 @@ namespace TaxiRateApp.Business.Concrete
                     Post_Stars = x.Post_Stars,
                     User_Id = x.User_Id,
                 }).ToList();
+                return new SuccessDataResult<List<Posts>>(resultOfSelect, Messages.PostGet);
+            }
+
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Posts>>(ex.Message);
+            }
+        }
+
+        public async Task<IDataResult<List<Posts>>> GetAllByUserId(int userId)
+        {
+            try
+            {
+                var result = await _postsDal.GetAll(x => x.Post_IsActive && x.User_Id == userId);
                 return new SuccessDataResult<List<Posts>>(result, Messages.PostGet);
             }
 
@@ -88,11 +103,12 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<List<Posts>> GetAllByUserId(int userId)
+        public async Task<IDataResult<List<Posts>>> GetPostsHomeScreen()
         {
             try
             {
-                return new SuccessDataResult<List<Posts>>(_postsDal.GetAll(x => x.Post_IsActive && x.User_Id == userId), Messages.PostGet);
+                var result = await _postsDal.GetPostsHomeScreen();
+                return new SuccessDataResult<List<Posts>>(result, Messages.PostGet);
             }
 
             catch (Exception ex)
@@ -101,24 +117,12 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<List<Posts>> GetPostsHomeScreen()
+        public async Task<IDataResult<Posts>> GetPostsDetailWithId(int postId)
         {
             try
             {
-                return new SuccessDataResult<List<Posts>>(_postsDal.GetPostsHomeScreen(),Messages.PostGet);
-            }
-
-            catch (Exception ex)
-            {
-                return new ErrorDataResult<List<Posts>>(ex.Message);
-            }
-        }
-
-        public IDataResult<Posts> GetPostsDetailWithId(int postId)
-        {
-            try
-            {
-                return new SuccessDataResult<Posts>(_postsDal.Get(x=>x.Post_Id == postId), Messages.PostGet);
+                var result = await _postsDal.Get(x => x.Post_Id == postId);
+                return new SuccessDataResult<Posts>(result, Messages.PostGet);
             }
 
             catch (Exception ex)
@@ -127,14 +131,28 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<List<Posts>> GetFivePosts()
+        public async Task<IDataResult<List<Posts>>> GetFivePosts()
         {
             try
             {
-                var result = _postsDal.GetAll().OrderByDescending(x => x.Post_CreatedDate).Take(5).ToList();
+                var resultOfPosts = await _postsDal.GetAll();
+                var result = resultOfPosts.OrderByDescending(x => x.Post_CreatedDate).Take(5).ToList();
                 return new SuccessDataResult<List<Posts>>(result, Messages.PostGet);
             }
 
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<List<Posts>>(ex.Message);
+            }
+        }
+
+        public async Task<IDataResult<List<Posts>>> GetPostWithPlateNo(string plateNo)
+        {
+            try
+            {
+                var result = await _postsDal.GetAll(x => x.Post_Plate == plateNo);
+                return new SuccessDataResult<List<Posts>>(result.ToList(), Messages.PostGet);
+            }
             catch (Exception ex)
             {
                 return new ErrorDataResult<List<Posts>>(ex.Message);

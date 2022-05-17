@@ -1,21 +1,18 @@
-﻿using System;
+﻿using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Entities.Concrete;
+using TaxiRateApp.Core.Utilities.Results.Abstract;
 
 namespace TaxiRateApp.Business.Abstract
 {
     public interface ICitiesService
     {
-        IDataResult<List<Cities>> GetAll();
-        IDataResult<Cities> GetById(int cityId);
-        IDataResult<Cities> GetByName(string cityName);
+        Task<IDataResult<List<Cities>>> GetAll();
+        Task<IDataResult<Cities>> GetById(int cityId);
+        Task<IDataResult<Cities>> GetByName(string cityName);
 
-        IResult Add(Cities cities);
-        IResult Update(Cities cities);
-        IResult Delete(Cities cities);
+        Task<IResult> Add(Cities cities);
+        Task<IResult> Update(Cities cities);
+        Task<IResult> Delete(Cities cities);
     }
 }

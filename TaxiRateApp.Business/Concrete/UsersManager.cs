@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using TaxiRateApp.Business.Abstract;
+using TaxiRateApp.Entities.Concrete;
 using TaxiRateApp.Business.Constants;
+using TaxiRateApp.DataAccess.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Concrete;
-using TaxiRateApp.DataAccess.Abstract;
-using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.Business.Concrete
 {
@@ -20,11 +18,11 @@ namespace TaxiRateApp.Business.Concrete
             _usersDal = usersDal;
         }
 
-        public IResult Add(Users users)
+        public async Task<IResult> Add(Users users)
         {
             try
             {
-                _usersDal.Add(users);
+                await _usersDal.Add(users);
                 return new SuccessResult(Messages.UserAdded);
             }
             catch (Exception ex)
@@ -32,11 +30,11 @@ namespace TaxiRateApp.Business.Concrete
                 return new ErrorResult(ex.Message);
             }
         }
-        public IResult Update(Users users)
+        public async Task<IResult> Update(Users users)
         {
             try
             {
-                _usersDal.Update(users);
+                await _usersDal.Update(users);
                 return new SuccessResult(Messages.UserUpdated);
             }
             catch (Exception ex)
@@ -45,11 +43,11 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IResult Delete(Users users)
+        public async Task<IResult> Delete(Users users)
         {
             try
             {
-                _usersDal.Delete(users);
+                await _usersDal.Delete(users);
                 return new SuccessResult(Messages.UserDeleted);
             }
             catch (Exception ex)
@@ -58,11 +56,12 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<List<Users>> GetAll()
+        public async Task<IDataResult<List<Users>>> GetAll()
         {
             try
             {
-                return new SuccessDataResult<List<Users>>(_usersDal.GetAll(), Messages.UserGet);
+                var result = await _usersDal.GetAll();
+                return new SuccessDataResult<List<Users>>(result, Messages.UserGet);
             }
 
             catch (Exception ex)
@@ -71,11 +70,12 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<Users> GetByName(string userName)
+        public async Task<IDataResult<Users>> GetByName(string userName)
         {
             try
             {
-                return new SuccessDataResult<Users>(_usersDal.Get(x=>x.User_UserName == userName), Messages.UserGet);
+                var result = await _usersDal.Get(x => x.User_UserName == userName);
+                return new SuccessDataResult<Users>(result, Messages.UserGet);
             }
 
             catch (Exception ex)

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 using TaxiRateApp.Core.DataAccess.EntityFramework;
 using TaxiRateApp.DataAccess.Abstract;
 using TaxiRateApp.DataAccess.Concrete.EntityFramework.Context;
@@ -12,7 +13,7 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework
 {
     public class EfPostsDal : EfEntityRepositoryBase<Posts, TaxiRateAppContext>, IPostsDal
     {
-        public List<Posts> GetPostsHomeScreen(Expression<Func<Posts, bool>> filter = null)
+        public async Task<List<Posts>> GetPostsHomeScreen(Expression<Func<Posts, bool>> filter = null)
         {
             using (TaxiRateAppContext context = new TaxiRateAppContext())
             {

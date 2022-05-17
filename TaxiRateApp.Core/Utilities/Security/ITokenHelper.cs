@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.Core.Utilities.Security
 {
     public interface ITokenHelper
     {
-        AccessToken CreateToken(Users users);
+        Task<AccessToken> CreateToken(Users users);
     }
 }

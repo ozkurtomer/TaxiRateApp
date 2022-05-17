@@ -1,22 +1,20 @@
-﻿using System;
+﻿using System.Threading.Tasks;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Entities.Concrete;
+using TaxiRateApp.Core.Utilities.Results.Abstract;
 
 namespace TaxiRateApp.Business.Abstract
 {
     public interface IPostsService
     {
-        IDataResult<List<Posts>> GetPostsHomeScreen();
-        IDataResult<List<Posts>> GetAllByUserId(int userId);
-        IDataResult<Posts> GetPostsDetailWithId(int postId);
-        IDataResult<List<Posts>> GetFivePosts();
+        Task<IDataResult<List<Posts>>> GetPostsHomeScreen();
+        Task<IDataResult<List<Posts>>> GetAllByUserId(int userId);
+        Task<IDataResult<Posts>> GetPostsDetailWithId(int postId);
+        Task<IDataResult<List<Posts>>> GetFivePosts();
+        Task<IDataResult<List<Posts>>> GetPostWithPlateNo(string plateNo);
 
-        IResult Add(Posts posts);
-        IResult Update(Posts posts);
-        IResult Delete(Posts posts);
+        Task<IResult> Add(Posts posts);
+        Task<IResult> Update(Posts posts);
+        Task<IResult> Delete(Posts posts);
     }
 }

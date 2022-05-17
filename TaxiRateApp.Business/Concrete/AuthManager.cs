@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using TaxiRateApp.Business.Abstract;
-using TaxiRateApp.Business.Constants;
+using TaxiRateApp.Entities.Dtos;
 using TaxiRateApp.Core.Extensions;
+using TaxiRateApp.Business.Abstract;
+using TaxiRateApp.Entities.Concrete;
+using TaxiRateApp.Business.Constants;
+using TaxiRateApp.Core.Utilities.Security;
 using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Concrete;
-using TaxiRateApp.Core.Utilities.Security;
 using TaxiRateApp.Core.Utilities.Security.Hashing;
-using TaxiRateApp.Entities.Concrete;
-using TaxiRateApp.Entities.Dtos;
 
 namespace TaxiRateApp.Business.Concrete
 {
@@ -26,9 +23,9 @@ namespace TaxiRateApp.Business.Concrete
             _usersService = usersService;
         }
 
-        public IDataResult<Users> Login(UserForLoginDto userForLoginDto)
+        public async Task<IDataResult<Users>> Login(UserForLoginDto userForLoginDto)
         {
-            var user = _usersService.GetByName(userForLoginDto.UserName);
+            var user = await _usersService.GetByName(userForLoginDto.UserName);
             if (user.Data != null)
             {
                 if (!HashingHelper.VerifyPasswordHash(userForLoginDto.UserPassword, user.Data.User_PasswordHash.ToHexBytes(), user.Data.User_PasswordSalt.ToHexBytes()))
@@ -41,18 +38,18 @@ namespace TaxiRateApp.Business.Concrete
             return new ErrorDataResult<Users>(Messages.WrongUserName);
         }
 
-        public IDataResult<AccessToken> CreateAccessToken(Users users)
+        public async Task<IDataResult<AccessToken>> CreateAccessToken(Users users)
         {
-            var accessToken = _tokenHelper.CreateToken(users);
+            var accessToken = await _tokenHelper.CreateToken(users);
             return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
         }
 
-        public IDataResult<Users> Register(UserForRegisterDto userForRegisterDto, string password)
+        public async Task<IDataResult<Users>> Register(UserForRegisterDto userForRegisterDto, string password)
         {
-            var result = _usersService.GetByName(userForRegisterDto.UserUserName);
+            var result = await _usersService.GetByName(userForRegisterDto.UserUserName);
             if (result.Data != null)
             {
-                return new ErrorDataResult<Users>( Messages.UserAlreadyExits);
+                return new ErrorDataResult<Users>(Messages.UserAlreadyExits);
             }
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
@@ -70,7 +67,7 @@ namespace TaxiRateApp.Business.Concrete
                 User_Anonymous = userForRegisterDto.UserAnonymous,
                 User_IsActive = false,
             };
-            _usersService.Add(users);
+            await _usersService.Add(users);
             return new SuccessDataResult<Users>(users, Messages.UserRegistered);
         }
     }

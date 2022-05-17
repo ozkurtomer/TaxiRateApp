@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Linq.Expressions;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using TaxiRateApp.Entities.Abstract;
 
 namespace TaxiRateApp.Core.DataAccess.EntityFramework
@@ -11,17 +12,16 @@ namespace TaxiRateApp.Core.DataAccess.EntityFramework
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
     {
-        public void Add(TEntity entity)
+        public async Task Add(TEntity entity)
         {
             using (TContext context = new TContext())
             {
-
                 var addedEntity = context.Add(entity).Entity;
                 context.SaveChanges();
             }
         }
 
-        public void Delete(TEntity entity)
+        public async Task Delete(TEntity entity)
         {
             using (TContext context = new TContext())
             {
@@ -30,7 +30,7 @@ namespace TaxiRateApp.Core.DataAccess.EntityFramework
             }
         }
 
-        public void Update(TEntity entity)
+        public async Task Update(TEntity entity)
         {
             using (TContext context = new TContext())
             {
@@ -39,7 +39,7 @@ namespace TaxiRateApp.Core.DataAccess.EntityFramework
             }
         }
 
-        public TEntity Get(Expression<Func<TEntity, bool>> filter)
+        public async Task<TEntity> Get(Expression<Func<TEntity, bool>> filter)
         {
             using (TContext context = new TContext())
             {
@@ -47,7 +47,7 @@ namespace TaxiRateApp.Core.DataAccess.EntityFramework
             }
         }
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
+        public async Task<List<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
             using (TContext context = new TContext())
             {

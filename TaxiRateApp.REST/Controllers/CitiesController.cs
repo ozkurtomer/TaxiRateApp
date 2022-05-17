@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TaxiRateApp.Business.Abstract;
-using TaxiRateApp.DataAccess.Abstract;
 using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.REST.Controllers
@@ -18,116 +18,86 @@ namespace TaxiRateApp.REST.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Cities cities) 
+        public async Task<IActionResult> Add(Cities cities)
         {
             try
             {
-                var result = _citiesService.Add(cities);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _citiesService.Add(cities);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
         [HttpPut("update")]
-        public IActionResult Update(Cities cities)
+        public async Task<IActionResult> Update(Cities cities)
         {
             try
             {
-                var result = _citiesService.Update(cities);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _citiesService.Update(cities);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Cities cities)
+        public async Task<IActionResult> Delete(Cities cities)
         {
             try
             {
-                var result = _citiesService.Delete(cities);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _citiesService.Delete(cities);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
         [HttpGet("getall")]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
             try
             {
-                var result = _citiesService.GetAll();
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _citiesService.GetAll();
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
         [HttpGet("getbyid")]
-        public IActionResult GetById(int cityId)
+        public async Task<IActionResult> GetById(int cityId)
         {
             try
             {
-                var result = _citiesService.GetById(cityId);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _citiesService.GetById(cityId);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
-        
+
         [HttpGet("getbyname")]
-        public IActionResult GetByName(string cityName)
+        public async Task<IActionResult> GetByName(string cityName)
         {
             try
             {
-                var result = _citiesService.GetByName(cityName);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _citiesService.GetByName(cityName);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
     }

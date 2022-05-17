@@ -1,9 +1,10 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Threading.Tasks;
+using TaxiRateApp.Entities.Concrete;
 using System.IdentityModel.Tokens.Jwt;
 using TaxiRateApp.Core.Utilities.Security.Encryption;
-using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.Core.Utilities.Security
 {
@@ -20,7 +21,7 @@ namespace TaxiRateApp.Core.Utilities.Security
 
         }
 
-        public AccessToken CreateToken(Users users)
+        public async Task<AccessToken> CreateToken(Users users)
         {
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);

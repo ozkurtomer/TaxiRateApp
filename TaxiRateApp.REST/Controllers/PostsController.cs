@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TaxiRateApp.Business.Abstract;
 using TaxiRateApp.Entities.Concrete;
@@ -18,134 +18,114 @@ namespace TaxiRateApp.REST.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Posts posts)
+        public async Task<IActionResult> Add(Posts posts)
         {
             try
             {
-                var result = _postsService.Add(posts);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _postsService.Add(posts);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
         [HttpPut("update")]
-        public IActionResult Update(Posts posts)
+        public async Task<IActionResult> Update(Posts posts)
         {
             try
             {
-                var result = _postsService.Update(posts);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _postsService.Update(posts);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
         [HttpDelete("delete")]
-        public IActionResult Delete(Posts posts)
+        public async Task<IActionResult> Delete(Posts posts)
         {
             try
             {
-                var result = _postsService.Delete(posts);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _postsService.Delete(posts);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
-        [HttpGet("getall")]
-        public IActionResult GetAll()
+        [HttpGet("getpostshomescreen")]
+        public async Task<IActionResult> GetAll()
         {
             try
             {
-                var result = _postsService.GetPostsHomeScreen();
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _postsService.GetPostsHomeScreen();
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
         [HttpGet("getallbyuserid")]
-        public IActionResult GetAllByUserId(int userId)
+        public async Task<IActionResult> GetAllByUserId(int userId)
         {
             try
             {
-                var result = _postsService.GetAllByUserId(userId);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _postsService.GetAllByUserId(userId);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
         [HttpGet("getdetailwithid")]
-        public IActionResult GetDetailWithId(int postId)
+        public async Task<IActionResult> GetDetailWithId(int postId)
         {
             try
             {
-                var result = _postsService.GetPostsDetailWithId(postId);
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
-
+                var result = await _postsService.GetPostsDetailWithId(postId);
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
         [HttpGet("getlastfiveposts")]
-        public IActionResult GetLastFivePosts()
+        public async Task<IActionResult> GetLastFivePosts()
         {
             try
             {
-                var result = _postsService.GetFivePosts(); 
-                if (result.Success)
-                {
-                    return Ok(result);
-                }
-                return BadRequest(result);
+                var result = await _postsService.GetFivePosts();
+                return Ok(result);
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
+            }
+        }
+
+        [HttpPost("getpostswithplateno")]
+        public async Task<IActionResult> GetPostsWithPlateNo(string plateNo)
+        {
+            try
+            {
+                var result = await _postsService.GetPostWithPlateNo(plateNo);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.Message);
             }
         }
     }

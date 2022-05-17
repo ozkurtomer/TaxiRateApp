@@ -1,16 +1,17 @@
-﻿using System.Collections.Generic;
-using TaxiRateApp.Core.Utilities.Results.Abstract;
+﻿using System.Threading.Tasks;
+using System.Collections.Generic;
 using TaxiRateApp.Entities.Concrete;
+using TaxiRateApp.Core.Utilities.Results.Abstract;
 
 namespace TaxiRateApp.Business.Abstract
 {
     public interface IUsersService
     {
-        IDataResult<List<Users>> GetAll();
-        IDataResult<Users> GetByName(string userName);
-
-        IResult Add(Users users);
-        IResult Update(Users users);
-        IResult Delete(Users users);
+        Task<IDataResult<List<Users>>> GetAll();
+        Task<IDataResult<Users>> GetByName(string userName);
+        
+        Task<IResult> Add(Users users);
+        Task<IResult> Update(Users users);
+        Task<IResult> Delete(Users users);
     }
 }

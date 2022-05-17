@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using TaxiRateApp.Business.Abstract;
+using TaxiRateApp.Entities.Concrete;
 using TaxiRateApp.Business.Constants;
+using TaxiRateApp.DataAccess.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Abstract;
 using TaxiRateApp.Core.Utilities.Results.Concrete;
-using TaxiRateApp.DataAccess.Abstract;
-using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.Business.Concrete
 {
@@ -21,11 +19,11 @@ namespace TaxiRateApp.Business.Concrete
             _citiesDal = citiesDal;
         }
 
-        public IResult Add(Cities cities)
+        public async Task<IResult> Add(Cities cities)
         {
             try
             {
-                _citiesDal.Add(cities);
+                await _citiesDal.Add(cities);
                 return new SuccessResult(Messages.CityAdded);
             }
 
@@ -35,11 +33,11 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IResult Update(Cities cities)
+        public async Task<IResult> Update(Cities cities)
         {
             try
             {
-                _citiesDal.Update(cities);
+                await _citiesDal.Update(cities);
                 return new SuccessResult(Messages.CityUpdated);
             }
 
@@ -49,11 +47,11 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IResult Delete(Cities cities)
+        public async Task<IResult> Delete(Cities cities)
         {
             try
             {
-                _citiesDal.Delete(cities);
+                await _citiesDal.Delete(cities);
                 return new SuccessResult(Messages.CityDeleted);
             }
 
@@ -63,11 +61,12 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<List<Cities>> GetAll()
+        public async Task<IDataResult<List<Cities>>> GetAll()
         {
             try
             {
-                return new SuccessDataResult<List<Cities>>(_citiesDal.GetAll(x => x.IsActive), Messages.CityGet);
+                var result = await _citiesDal.GetAll(x => x.IsActive);
+                return new SuccessDataResult<List<Cities>>(result, Messages.CityGet);
             }
 
             catch (Exception ex)
@@ -76,11 +75,12 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<Cities> GetById(int cityId)
+        public async Task<IDataResult<Cities>> GetById(int cityId)
         {
             try
             {
-                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Id == cityId && x.IsActive), Messages.CityGet);
+                var result = await _citiesDal.Get(x => x.City_Id == cityId && x.IsActive);
+                return new SuccessDataResult<Cities>(result, Messages.CityGet);
             }
 
             catch (Exception ex)
@@ -89,11 +89,12 @@ namespace TaxiRateApp.Business.Concrete
             }
         }
 
-        public IDataResult<Cities> GetByName(string cityName)
+        public async Task<IDataResult<Cities>> GetByName(string cityName)
         {
             try
             {
-                return new SuccessDataResult<Cities>(_citiesDal.Get(x => x.City_Name.ToLower().Contains(cityName.ToLower()) && x.IsActive), Messages.CityGet);
+                var result = await _citiesDal.Get(x => x.City_Name.ToLower().Contains(cityName.ToLower()) && x.IsActive);
+                return new SuccessDataResult<Cities>(result, Messages.CityGet);
             }
 
             catch (Exception ex)

@@ -25,7 +25,7 @@ namespace TaxiRateApp.Business.Concrete
 
         public async Task<IDataResult<Users>> Login(UserForLoginDto userForLoginDto)
         {
-            var user = await _usersService.GetByName(userForLoginDto.UserName);
+            var user = await _usersService.GetByName(userForLoginDto.UserEmail);
             if (user.Data != null)
             {
                 if (!HashingHelper.VerifyPasswordHash(userForLoginDto.UserPassword, user.Data.User_PasswordHash.ToHexBytes(), user.Data.User_PasswordSalt.ToHexBytes()))

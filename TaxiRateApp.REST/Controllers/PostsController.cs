@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TaxiRateApp.Business.Abstract;
+using TaxiRateApp.Core.Extensions;
 using TaxiRateApp.Entities.Concrete;
 
 namespace TaxiRateApp.REST.Controllers
@@ -88,11 +89,11 @@ namespace TaxiRateApp.REST.Controllers
         }
 
         [HttpGet("getdetailwithid")]
-        public async Task<IActionResult> GetDetailWithId(int postId)
+        public async Task<IActionResult> GetDetailWithId(string postId)
         {
             try
             {
-                var result = await _postsService.GetPostsDetailWithId(postId);
+                var result = await _postsService.GetPostsDetailWithId(postId.TryToInt());
                 return Ok(result);
             }
             catch (Exception ex)

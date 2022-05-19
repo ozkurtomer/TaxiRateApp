@@ -74,7 +74,7 @@ namespace TaxiRateApp.REST
             }
 
             app.UseCors(bldr => bldr
-                       .WithOrigins("https://dev.taksipuanla.com", "http://localhost:4200")
+                       .WithOrigins("https://dev.taksipuanla.com", "http://localhost:4200", "https://www.taksipuanla.com")
                        .WithMethods("GET", "POST")
                        .AllowAnyHeader()
 );

@@ -74,7 +74,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                var result = await _usersDal.Get(x => x.User_UserName == userName);
+                var result = await _usersDal.Get(x => x.User_Email == userName);
                 return new SuccessDataResult<Users>(result, Messages.UserGet);
             }
 

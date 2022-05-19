@@ -79,6 +79,7 @@ namespace TaxiRateApp.Business.Concrete
                     Post_Plate = x.Post_Plate,
                     Post_Stars = x.Post_Stars,
                     User_Id = x.User_Id,
+                    Post_Title = x.Post_Title
                 }).ToList();
                 return new SuccessDataResult<List<Posts>>(resultOfSelect, Messages.PostGet);
             }

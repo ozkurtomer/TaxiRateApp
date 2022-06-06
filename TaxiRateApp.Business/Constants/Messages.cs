@@ -17,6 +17,10 @@ namespace TaxiRateApp.Business.Constants
         public static string CityUpdated = "Şehir başarılı bir şekilde güncellendi.";
         public static string CityDeleted = "Şehir başarılı bir şekilde silindi.";
         public static string CityGet = "Şehirler başarılı bir şekilde getirildi.";
+        public static string CommentAdded = "Yorumunuz başarılı bir şekilde eklendi. Onaylandıktan sonra yayınlanacaktır.";
+        public static string CommentUpdated = "Yorumunuz başarılı bir şekilde güncellendi.";
+        public static string CommentDeleted = "Yorumunuz başarılı bir şekilde silindi.";
+        public static string CommentGet = "Yorumunuz başarılı bir şekilde getirildi.";
 
         public static string UserAdded = "Kullanıcı başarılı bir şekilde eklendi.";
         public static string UserUpdated = "Kullanıcı başarılı bir şekilde güncellendi.";

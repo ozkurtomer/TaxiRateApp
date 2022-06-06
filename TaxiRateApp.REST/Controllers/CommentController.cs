@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using TaxiRateApp.Business.Abstract;
 using TaxiRateApp.Entities.Concrete;
 
@@ -20,17 +21,19 @@ namespace TaxiRateApp.REST.Controllers
         {
             try
             {
+                comments.Comment_CreatedDate = DateTime.Now;
+                comments.Comment_IsActive = false;
                 var result = _commentService.Add(comments);
                 if (result.Success)
                 {
                     return Ok(result);
                 }
-                return BadRequest(result);
+                return Ok(result);
 
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
@@ -44,12 +47,12 @@ namespace TaxiRateApp.REST.Controllers
                 {
                     return Ok(result);
                 }
-                return BadRequest(result);
+                return Ok(result);
 
             }
             catch (System.Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
@@ -63,12 +66,12 @@ namespace TaxiRateApp.REST.Controllers
                 {
                     return Ok(result);
                 }
-                return BadRequest(result);
+                return Ok(result);
 
             }
             catch (System.Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
 
@@ -82,12 +85,12 @@ namespace TaxiRateApp.REST.Controllers
                 {
                     return Ok(result);
                 }
-                return BadRequest(result);
+                return Ok(result);
 
             }
             catch (System.Exception ex)
             {
-                return BadRequest(ex.Message);
+                return Ok(ex.Message);
             }
         }
     }

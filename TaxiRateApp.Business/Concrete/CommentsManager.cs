@@ -25,7 +25,7 @@ namespace TaxiRateApp.Business.Concrete
             try
             {
                 _contentsDal.Add(contents);
-                return new SuccessResult(Messages.CityAdded);
+                return new SuccessResult(Messages.CommentAdded);
             }
 
             catch (Exception ex)

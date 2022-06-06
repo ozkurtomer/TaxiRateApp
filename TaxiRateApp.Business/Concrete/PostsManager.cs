@@ -122,7 +122,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                var result = await _postsDal.Get(x => x.Post_Id == postId);
+                var result = await _postsDal.GetPostsDetail(postId);
                 return new SuccessDataResult<Posts>(result, Messages.PostGet);
             }
 

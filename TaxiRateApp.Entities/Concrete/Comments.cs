@@ -7,7 +7,7 @@ namespace TaxiRateApp.Entities.Concrete
     {
         public int Comment_Id { get; set; }
         public int Post_Id { get; set; }
-        public int User_Id { get; set; }
+        public int? User_Id { get; set; }
         public string Comment_Description { get; set; }
         public DateTime Comment_CreatedDate { get; set; }
         public bool Comment_IsActive { get; set; }

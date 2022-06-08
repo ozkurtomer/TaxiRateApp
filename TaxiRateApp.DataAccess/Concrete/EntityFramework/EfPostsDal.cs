@@ -36,7 +36,7 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework
                           Comment_Id=y.Comment_Id,
                           Comment_IsActive=y.Comment_IsActive,
                           User = y.User
-                    }).ToList(),
+                    }).Where(y=>y.Comment_IsActive == true).ToList(),
                     User = x.User,
                     City_Id = x.City_Id,
                     Post_IsActive = x.Post_IsActive,

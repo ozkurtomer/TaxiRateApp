@@ -33,6 +33,8 @@ namespace TaxiRateApp.REST
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TaxiRateApp.REST", Version = "v1" });
             });
+
+            services.AddCors();
             services.AddControllers();
 
             //services.AddCors(options =>
@@ -78,10 +80,10 @@ namespace TaxiRateApp.REST
             }
 
             app.UseCors(bldr => bldr
-                       .WithOrigins("https://dev.taksipuanla.com", "http://localhost:4200", "https://www.taksipuanla.com")
+                       .WithOrigins("https://dev.taksipuanla.com", "http://dev.taksipuanla.com", "http://localhost:4200", "https://www.taksipuanla.com", "http://www.taksipuanla.com")
                        .WithMethods("GET", "POST")
-                       .AllowAnyHeader()
-);
+                       .AllowAnyHeader());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

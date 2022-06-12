@@ -18,7 +18,7 @@ namespace TaxiRateApp.Entities.Concrete
         public bool Post_IsActive { get; set; }
 
         public virtual Cities City { get; set; }
-        public virtual Users User { get; set; }
+        public virtual Users? User { get; set; }
         public virtual ICollection<Comments> Comments { get; set; }
     }
 }

@@ -61,8 +61,9 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework
                         Post_Plate = x.Post_Plate,
                         Post_Stars = x.Post_Stars,
                         Post_LikeCount = x.Post_LikeCount,
-                        Post_Title = x.Post_Title
-                    });
+                        Post_Title = x.Post_Title,
+                        Post_IsActive = x.Post_IsActive
+                    }).Where(x => x.Post_IsActive == true);
                     return result.ToList();
                 }
 

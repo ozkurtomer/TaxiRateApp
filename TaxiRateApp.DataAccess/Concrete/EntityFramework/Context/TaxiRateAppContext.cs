@@ -141,7 +141,8 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework.Context
                      .HasColumnType("int(11)");
 
                 entity.Property(e => e.Post_IsActive)
-                      .HasColumnName("Post_IsActive");
+                      .HasColumnName("Post_IsActive")
+                      .HasColumnType("tinyint(1)");
 
                 entity.Property(e => e.Post_Plate)
                     .IsRequired()

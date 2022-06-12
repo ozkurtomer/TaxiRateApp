@@ -26,6 +26,7 @@ namespace TaxiRateApp.Core.Utilities.Security
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
             var securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
             var signingCredentials = SigningCredentialsHelper.CreateSigningCredentials(securityKey);
+            _tokenOptions.Users = users;
             var jwt = CreateJwtSecurityToken(_tokenOptions, users, signingCredentials);
             var jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
             var token = jwtSecurityTokenHandler.WriteToken(jwt);
@@ -42,7 +43,7 @@ namespace TaxiRateApp.Core.Utilities.Security
         public JwtSecurityToken CreateJwtSecurityToken(TokenOptions tokenOptions, Users users, SigningCredentials signingCredentials)
         {
             var jwt = new JwtSecurityToken(
-                issuer: tokenOptions.Issuer,
+                issuer: tokenOptions.Users.User_Id.ToString(),
                 audience: tokenOptions.Audience,
                 expires: _accessTokenExpiration,
                 notBefore: DateTime.Now,

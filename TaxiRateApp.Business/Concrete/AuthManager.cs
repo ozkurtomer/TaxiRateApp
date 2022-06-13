@@ -55,15 +55,22 @@ namespace TaxiRateApp.Business.Concrete
             HashingHelper.CreatePasswordHash(password, out passwordHash, out passwordSalt);
             byte[] saltByte = passwordSalt;
 
+            var userName = userForRegisterDto.UserName;
+            if (userForRegisterDto.UserAnonymous)
+            {
+                Random random = new Random();
+                userName = $"anon-{random.Next(0, 10000000)}";
+            }
+
             var users = new Users
             {
-                User_Name = userForRegisterDto.UserName,
+                User_Name = userName,
                 User_PasswordHash = passwordHash.ToHexString(),
                 User_PasswordSalt = passwordSalt.ToHexString(),
                 User_Email = userForRegisterDto.UserEmail,
                 User_CreatedDate = DateTime.Now,
                 User_UserName = userForRegisterDto.UserUserName,
-                User_Ip = "12341232",
+                User_Ip = userForRegisterDto.UserIpAddress,
                 User_Anonymous = userForRegisterDto.UserAnonymous,
                 User_IsActive = false,
             };

@@ -8,6 +8,7 @@ namespace TaxiRateApp.Business.Abstract
     public interface IUsersService
     {
         Task<IDataResult<List<Users>>> GetAll();
+        Task<IDataResult<Users>> GetByUserId(int userId);
         Task<IDataResult<Users>> GetByName(string userName);
         
         Task<IResult> Add(Users users);

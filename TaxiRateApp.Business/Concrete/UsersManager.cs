@@ -83,5 +83,19 @@ namespace TaxiRateApp.Business.Concrete
                 return new ErrorDataResult<Users>(ex.Message);
             }
         }
+
+        public async Task<IDataResult<Users>> GetByUserId(int userId)
+        {
+            try
+            {
+                var result = await _usersDal.Get(x => x.User_Id == userId);
+                return new SuccessDataResult<Users>(result, Messages.UserGet);
+            }
+
+            catch (Exception ex)
+            {
+                return new ErrorDataResult<Users>(ex.Message);
+            }
+        }
     }
 }

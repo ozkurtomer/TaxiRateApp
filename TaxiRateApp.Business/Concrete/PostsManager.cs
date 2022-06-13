@@ -94,7 +94,7 @@ namespace TaxiRateApp.Business.Concrete
         {
             try
             {
-                var result = await _postsDal.GetAll(x => x.Post_IsActive && x.User_Id == userId);
+                var result = await _postsDal.GetPostsHomeScreen(x=>x.User_Id == userId);
                 return new SuccessDataResult<List<Posts>>(result, Messages.PostGet);
             }
 

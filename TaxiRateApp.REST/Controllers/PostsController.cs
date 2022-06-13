@@ -32,7 +32,7 @@ namespace TaxiRateApp.REST.Controllers
             }
         }
 
-        [HttpPut("update")]
+        [HttpPost("update")]
         public async Task<IActionResult> Update(Posts posts)
         {
             try
@@ -66,6 +66,20 @@ namespace TaxiRateApp.REST.Controllers
             try
             {
                 var result = await _postsService.GetPostsHomeScreen();
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex.Message);
+            }
+        }
+
+        [HttpGet("getpostsuser")]
+        public async Task<IActionResult> GetPostUser(int userId)
+        {
+            try
+            {
+                var result = await _postsService.GetAllByUserId(userId);
                 return Ok(result);
             }
             catch (Exception ex)

@@ -69,7 +69,19 @@ namespace TaxiRateApp.DataAccess.Concrete.EntityFramework
 
                 else
                 {
-                    var result = context.Posts.Include(x => x.User).Include(x => x.City);
+                    var result = context.Posts.Include(x => x.User).Include(x => x.City).Select(x => new Posts
+                    {
+                        Post_Id = x.Post_Id,
+                        City = x.City,
+                        Post_CreatedDate = x.Post_CreatedDate,
+                        Post_Description = x.Post_Description,
+                        Post_Plate = x.Post_Plate,
+                        Post_Stars = x.Post_Stars,
+                        Post_LikeCount = x.Post_LikeCount,
+                        Post_Title = x.Post_Title,
+                        Post_IsActive = x.Post_IsActive,
+                        User_Id = x.User_Id
+                    }).Where(x => x.Post_IsActive == true);
 
                     return result.Where(filter).ToList();
                 }

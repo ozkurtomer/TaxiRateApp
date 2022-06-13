@@ -8,6 +8,7 @@ namespace TaxiRateApp.Entities.Dtos
         public string UserUserName { get; set; }
         public string UserPassword { get; set; }
         public string UserEmail { get; set; }
-        public bool   UserAnonymous { get; set; }
+        public bool UserAnonymous { get; set; }
+        public string UserIpAddress { get; set; }
     }
 }

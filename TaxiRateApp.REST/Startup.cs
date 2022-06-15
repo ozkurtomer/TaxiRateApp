@@ -34,8 +34,18 @@ namespace TaxiRateApp.REST
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TaxiRateApp.REST", Version = "v1" });
             });
 
+<<<<<<< Updated upstream
             services.AddCors();
             services.AddControllers();
+=======
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowOrigin",
+            //        builder => builder.WithOrigins("http://localhost:4200/", "https://www.taksipuanla.com/", "https://dev.taksipuanla.com/")
+            //        .AllowAnyMethod()
+            //        .AllowAnyHeader());
+            //});
+>>>>>>> Stashed changes
 
             var tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
@@ -71,11 +81,20 @@ namespace TaxiRateApp.REST
                 app.UseHttpsRedirection();
             }
 
+<<<<<<< Updated upstream
             app.UseCors(bldr => bldr
                        .WithOrigins("https://dev.taksipuanla.com", "http://dev.taksipuanla.com", "http://localhost:4200", "https://www.taksipuanla.com", "http://www.taksipuanla.com")
                        .WithMethods("GET", "POST")
                        .AllowAnyHeader());
 
+=======
+            //app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+            app.UseCors(bldr => bldr
+                       .WithOrigins("https://dev.taksipuanla.com")
+                       .WithMethods("GET", "POST")
+                       .AllowAnyHeader()
+);
+>>>>>>> Stashed changes
             app.UseHttpsRedirection();
 
             app.UseRouting();

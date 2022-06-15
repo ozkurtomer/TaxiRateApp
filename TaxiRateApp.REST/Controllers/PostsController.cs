@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 ﻿using System;
 using System.Threading.Tasks;
+=======
+﻿using Microsoft.AspNetCore.Cors;
+>>>>>>> Stashed changes
 using Microsoft.AspNetCore.Mvc;
 using TaxiRateApp.Business.Abstract;
 using TaxiRateApp.Core.Extensions;

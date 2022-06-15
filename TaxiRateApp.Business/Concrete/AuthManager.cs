@@ -41,7 +41,7 @@ namespace TaxiRateApp.Business.Concrete
         public async Task<IDataResult<AccessToken>> CreateAccessToken(Users users)
         {
             var accessToken = await _tokenHelper.CreateToken(users);
-            return new SuccessDataResult<AccessToken>(accessToken, Messages.AccessTokenCreated);
+            return new SuccessDataResult<AccessToken>(accessToken, Messages.SuccessfulLogin);
         }
 
         public async Task<IDataResult<Users>> Register(UserForRegisterDto userForRegisterDto, string password)
